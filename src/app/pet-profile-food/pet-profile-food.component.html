@@ -1,28 +1,22 @@
 <div class="table-container mat-elevation-z8">
     <table mat-table [dataSource]="dataSource">
   
-      <!-- Position Column -->
+      <!-- Names Column -->
       <ng-container matColumnDef="Name">
         <th mat-header-cell *matHeaderCellDef> Name </th>
         <td mat-cell *matCellDef="let element"> {{element.name}} </td>
       </ng-container>
   
-      <!-- Name Column -->
-      <ng-container matColumnDef="Veterinary">
-        <th mat-header-cell *matHeaderCellDef> Veterinary </th>
-        <td mat-cell *matCellDef="let element"> {{element.veterinary}} </td>
+      <!-- Qunatity Column -->
+      <ng-container matColumnDef="Quantity">
+        <th mat-header-cell *matHeaderCellDef> Quantity </th>
+        <td mat-cell *matCellDef="let element"> {{element.quantity}} g </td>
       </ng-container>
   
-      <!-- Weight Column -->
+      <!-- Date Column -->
       <ng-container matColumnDef="Date">
         <th mat-header-cell *matHeaderCellDef> Date </th>
         <td mat-cell *matCellDef="let element"> {{element.date}} </td>
-      </ng-container>
-  
-      <!-- Symbol Column -->
-      <ng-container matColumnDef="Description">
-        <th mat-header-cell *matHeaderCellDef> Description </th>
-        <td mat-cell *matCellDef="let element"> {{element.desc}} </td>
       </ng-container>
 
       <!-- Done Column -->
