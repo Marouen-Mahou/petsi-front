@@ -1,0 +1,76 @@
+<div class="row">
+	<div class="col-md-6 offset-md-3 mt-4">
+		<h3>Register</h3>
+		<form #registerForm="ngForm">
+
+			<div class="form-group">
+				<label for="firstName">Firstname</label>
+				<input type="text" name="firstName" ngModel required class="form-control" id="firstName">
+			</div>
+
+			<div class="form-group">
+				<label for="lastName">Lastname</label>
+				<input type="text" name="lastName" ngModel required class="form-control" id="lastName">
+      </div>
+
+			<div class="form-group">
+				<label for="email">Email</label>
+				<input email type="text" name="email" ngModel required class="form-control" id="email"
+					   placeholder="Enter email" #emailInput="ngModel">
+        <div class="alert alert-danger" *ngIf="emailInput.invalid && emailInput.dirty">Invalid mail!</div>
+			</div>
+
+			<div class="form-group">
+				<label for="password">Password</label>
+				<input type="password" name="password" ngModel required class="form-control" id="password" minlength="4" #pwdInput="ngModel">
+        <div class="alert alert-danger" *ngIf="pwdInput.invalid && pwdInput.dirty">Password must contain at least 4 characters!</div>
+      </div>
+
+			<div class="form-group">
+				<label for="birthDate">BirthDate</label>
+				<input type="date" name="birthdate" ngModel required class="form-control" id="birthDate">
+			</div>
+
+			<div class="form-group">
+				<label for="avatar">Avatar</label>
+				<input type="file" name="avatar" ngModel class="form-control-file" id="avatar">
+      </div>
+
+      <p>Gender</p>
+      <div class="form-check">
+        <input class="form-check-input" type="radio" id="male" nfModel name="gender" value="male" required>
+        <label class="form-check-label" for="male">Male</label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="radio" id="female" ngModel name="gender" value="female">
+        <label class="form-check-label" for="female">Female</label>
+      </div>
+
+			<div class="form-group">
+				<label for="phone">Phone Number</label>
+				<input type="text" ngModel name="phone" ngModel required class="form-control" id="phone" maxlength="8" minlength="8" #phoneInput="ngModel" (keypress)="validatePhone($event)">
+        <div class="alert alert-danger" *ngIf="phoneInput.invalid && phoneInput.dirty">Phone number must contain 8 numbers!</div>
+      </div>
+
+			<div class="form-group">
+				<label for="address">Address</label>
+				<input type="text" ngModel name="adress" ngModel required class="form-control" id="address">
+			</div>
+
+      <div class="form-group">
+        <label for="role">Role</label>
+        <select ngModel name="role" class="form-select form-control" id="role" required>
+          <option selected value="pet owner">Pet Owner</option>
+          <option value="veterinary">Veterinary</option>
+        </select>
+      </div>
+
+			<div>
+				<button type="submit" (click)="register(registerForm.value)" [disabled]="registerForm.invalid" class="btn btn-primary">Sign up<i class="fas fa-sign-in-alt"></i></button>
+
+			</div>
+
+		</form>
+	</div>
+</div>
+

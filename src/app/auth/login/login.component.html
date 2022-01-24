@@ -1,0 +1,25 @@
+<div class="row">
+	<div class="col-md-6 offset-md-3 mt-4">
+		<h3>Login</h3>
+		<form #loginForm="ngForm">
+			<div class="form-group">
+				<label for="email">Email</label>
+				<input email type="text" name="email" ngModel required class="form-control" id="email"
+					   placeholder="Enter email" #emailInput="ngModel">
+        <div class="alert alert-danger" *ngIf="emailInput.invalid && emailInput.dirty">Invalid email!</div>
+			</div>
+			<div class="form-group">
+				<label for="password">Password</label>
+				<input type="password" name="password" ngModel required class="form-control" id="password" minlength="4" #pwdInput="ngModel">
+        <div class="alert alert-danger" *ngIf="pwdInput.invalid && pwdInput.dirty">Password must contain at least 4 characters!</div>
+      </div>
+
+
+			<div>
+				<button type="submit" (click)="login(loginForm.value)" [disabled]="loginForm.invalid" class="btn btn-primary">Login <i class="fas fa-sign-in-alt"></i></button>
+
+			</div>
+
+		</form>
+	</div>
+</div>
