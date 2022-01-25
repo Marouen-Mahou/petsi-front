@@ -1,19 +1,23 @@
 .ng-invalid.ng-touched{
   border-color: red;
 }
+.hint{
+  color: red;
+}
 mat-toolbar{
   border-radius: 10px 10px 0 0;
 }
 .main-div mat-card{
   padding: 0px;
-  width: 35%;
+  width: 50%;
+  max-width:550px;
   border-radius: 10px;
 }
 .login-form{
   padding: 20px;
 }
-.hint{
-  color: red;
+.mat-radio-button ~ .mat-radio-button {
+  margin-left: 16px;
 }
 img.bg {
   /* Set rules to fill background */
@@ -29,3 +33,4 @@ img.bg {
   top: 0;
   left: 0;
 }
+

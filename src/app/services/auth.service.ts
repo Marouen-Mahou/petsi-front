@@ -33,8 +33,8 @@ export class AuthService {
 //     localStorage.removeItem('token');
 //   }
 
-  register(model: any) {
-    return this.http.post(this.link +"register", model);
+  register(data: any) {
+    return this.http.post(this.link +"register", data);
   }
 
 //   confirmEmail(model: any) {
