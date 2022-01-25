@@ -18,6 +18,10 @@ import { MatSidenavModule } from '@angular/material/sidenav'
 import { MatToolbarModule } from '@angular/material/toolbar'
 import { MatButtonModule } from '@angular/material/button';
 import { MatDividerModule } from '@angular/material/divider';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { MatFormFieldModule } from '@angular/material/form-field';
+
+import { FormsModule }   from '@angular/forms';
 
 
 import { PetProfileVaccineComponent } from './pet-profile-vaccine/pet-profile-vaccine.component'
@@ -28,6 +32,7 @@ import { PetProfileAppointmentComponent } from './pet-profile-appointment/pet-pr
 import { PetProfileWeightComponent } from './pet-profile-weight/pet-profile-weight.component';
 import { AppSideNavComponent } from './app-side-nav/app-side-nav.component';
 import { AppUserLayoutComponent } from './app-user-layout/app-user-layout.component';
+import { PetVaccineComponent } from './pet-vaccine/pet-vaccine.component';
 
 
 @NgModule({
@@ -41,6 +46,7 @@ import { AppUserLayoutComponent } from './app-user-layout/app-user-layout.compon
     PetProfileWeightComponent,
     AppSideNavComponent,
     AppUserLayoutComponent,
+    PetVaccineComponent,
   ],
   imports: [
     BrowserModule,
@@ -55,6 +61,9 @@ import { AppUserLayoutComponent } from './app-user-layout/app-user-layout.compon
     MatToolbarModule,
     MatButtonModule,
     MatDividerModule,
+    MatGridListModule,
+    MatFormFieldModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
