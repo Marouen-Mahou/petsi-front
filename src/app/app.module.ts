@@ -20,8 +20,10 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 import { FormsModule }   from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 
 import { PetProfileVaccineComponent } from './pet-profile-vaccine/pet-profile-vaccine.component'
@@ -33,6 +35,9 @@ import { PetProfileWeightComponent } from './pet-profile-weight/pet-profile-weig
 import { AppSideNavComponent } from './app-side-nav/app-side-nav.component';
 import { AppUserLayoutComponent } from './app-user-layout/app-user-layout.component';
 import { PetVaccineComponent } from './pet-vaccine/pet-vaccine.component';
+import { PetBathComponent } from './pet-bath/pet-bath.component';
+import { PetAppointmentComponent } from './pet-appointment/pet-appointment.component';
+import { PetFoodComponent } from './pet-food/pet-food.component';
 
 
 @NgModule({
@@ -47,6 +52,9 @@ import { PetVaccineComponent } from './pet-vaccine/pet-vaccine.component';
     AppSideNavComponent,
     AppUserLayoutComponent,
     PetVaccineComponent,
+    PetBathComponent,
+    PetAppointmentComponent,
+    PetFoodComponent,
   ],
   imports: [
     BrowserModule,
@@ -63,7 +71,9 @@ import { PetVaccineComponent } from './pet-vaccine/pet-vaccine.component';
     MatDividerModule,
     MatGridListModule,
     MatFormFieldModule,
-    FormsModule
+    MatSnackBarModule,
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

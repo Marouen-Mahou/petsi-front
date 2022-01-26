@@ -1,7 +1,8 @@
 <mat-card class="pet-card">
-    <mat-card-title>Shiba Inu</mat-card-title>
+    <mat-card-title class="pet-card-title">Shiba</mat-card-title>
+    <mat-divider></mat-divider>
     <mat-card-title-group>
-      <img mat-card-xl-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" >
+      <img mat-card-lg-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" >
       <mat-card-subtitle>
         <mat-list role="list">
             <mat-list-item role="listitem">Gender : Male</mat-list-item>
@@ -31,6 +32,7 @@
             Foods
           </mat-panel-title>
         </mat-expansion-panel-header>
+        <button  class="consult-button" [routerLink]="['foods']" mat-raised-button color="primary">Consult</button>
         <app-pet-profile-food></app-pet-profile-food>
     </mat-expansion-panel>
     <mat-expansion-panel class="pet-accordion">
@@ -58,6 +60,7 @@
             Appointments
           </mat-panel-title>
         </mat-expansion-panel-header>
+        <button  class="consult-button" [routerLink]="['appointments']" mat-raised-button color="primary">Consult</button>
         <app-pet-profile-appointment></app-pet-profile-appointment>
       </mat-expansion-panel>
   </mat-accordion>
