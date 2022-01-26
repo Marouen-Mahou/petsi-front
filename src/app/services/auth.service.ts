@@ -18,23 +18,24 @@ export class AuthService {
     return this.http.post(this.link+"login" , credentials);
   }
 
-//   loggedIn(): boolean {
-//     const token = localStorage.getItem('token');
-//     return !this.helper.isTokenExpired(token);
-//   }
+  loggedIn(): boolean {
+    return !! localStorage.getItem('token');
+  }
 
-//   logout() {
-//     this.currentUser = {
-//       username: null,
-//       email: null,
-//       role: null,
-//       jobtitle: null,
-//     };
-//     localStorage.removeItem('token');
-//   }
+  logout() {
+    localStorage.removeItem('token');
+  }
 
   register(data: any) {
     return this.http.post(this.link +"register", data);
+  }
+
+  forgot(data:any){
+    return this.http.post(this.link+"forgotPassword", data);
+  }
+
+  reset(data:any){
+    return this.http.post(this.link+"resetPassword", data);
   }
 
 //   confirmEmail(model: any) {

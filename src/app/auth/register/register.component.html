@@ -66,6 +66,10 @@
         <button mat-raised-button color="primary" type="submit" (click)="register(registerForm.value)" [disabled]="registerForm.invalid">Sign up<i class="fas fa-sign-in-alt"></i></button>
 
       </form>
+      <div class="signin">
+        <small>You already have an account?</small>
+        <a routerLink="/login">Sign in</a>
+      </div>
     </mat-card>
   </mat-grid-tile>
 </mat-grid-list>

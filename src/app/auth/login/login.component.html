@@ -7,18 +7,28 @@
         <mat-form-field>
           <input matInput email type="text" name="email" ngModel required id="email"
               placeholder="Enter email" #emailInput="ngModel">
+          <mat-error *ngIf="emailInput.hasError('required')">This field is required!</mat-error>
           <mat-hint class="hint" *ngIf="emailInput.invalid && emailInput.dirty">Invalid email!</mat-hint>
         </mat-form-field>
         <mat-form-field>
           <input matInput type="password" name="password" ngModel required id="password" minlength="4" #pwdInput="ngModel" placeholder="Password">
+          <mat-error *ngIf="pwdInput.hasError('required')">This field is required!</mat-error>
           <mat-hint class="hint" *ngIf="pwdInput.invalid && pwdInput.dirty">Password must contain at least 4 characters!</mat-hint>
         </mat-form-field>
+        <br>
         <div *ngIf="error" class="alert alert-danger">
           {{ error }}
         </div>
         <br>
+        <div class="mb-3">
+          <a routerLink="/forgotPassword">Forgot password?</a>
+        </div>
         <button mat-raised-button color="primary" type="submit" (click)="login(loginForm.value)">Login <i class="fas fa-sign-in-alt"></i></button>
       </form>
+      <div class="signup">
+        <small>You don't have an account?</small>
+        <a routerLink="/register">Sign up</a>
+      </div>
     </mat-card>
   </mat-grid-tile>
 </mat-grid-list>

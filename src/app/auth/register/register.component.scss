@@ -12,6 +12,7 @@ mat-toolbar{
   width: 50%;
   max-width:550px;
   border-radius: 10px;
+  display: inline-block;
 }
 .login-form{
   padding: 20px;
@@ -32,5 +33,10 @@ img.bg {
   position: fixed;
   top: 0;
   left: 0;
+}
+
+.signin{
+  padding-left: 20px;
+  padding-bottom: 5px;
 }
 

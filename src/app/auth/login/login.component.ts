@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
 
@@ -19,6 +18,10 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {}
 
+  retry(){
+    this.error = "";
+  }
+
   login(credentials: any){
     this.authService.login(credentials).subscribe(
       (rep:any) => {
@@ -28,8 +31,11 @@ export class LoginComponent implements OnInit {
         this.router.navigate(link);
       },
       (err) => {
-        this.error="Wrong Credentials!";
+        if (err.error.message == "Wrong credentials!"){
+          this.error="Wrong Credentials!";
+        }
       }
     )
   }
+
 }

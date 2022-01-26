@@ -20,6 +20,11 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { MaterialFileInputModule } from 'ngx-material-file-input';
 import {MatRadioModule} from '@angular/material/radio';
 import {MatSelectModule} from '@angular/material/select';
+import { LogoutComponent } from './logout/logout.component';
+import { AuthGuard } from '../guards/auth.guard';
+import { NotAuthGuard } from '../guards/notAuth.guard';
+import { ForgotComponent } from './forgot/forgot.component';
+import { ResetComponent } from './reset/reset.component';
 
 
 
@@ -29,7 +34,10 @@ import {MatSelectModule} from '@angular/material/select';
 @NgModule({
   declarations: [
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    LogoutComponent,
+    ForgotComponent,
+    ResetComponent
   ],
   imports: [
     MatSelectModule,
@@ -49,6 +57,9 @@ import {MatSelectModule} from '@angular/material/select';
     AuthRoutingModule,
     FormsModule
   ],
-  providers: []
+  providers: [
+    AuthGuard,
+    NotAuthGuard
+  ]
 })
 export class AuthModule { }

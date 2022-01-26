@@ -30,7 +30,10 @@ import { PetProfileVaccineComponent } from './pet-profile-vaccine/pet-profile-va
 import { PetProfileComponent } from './pet-profile/pet-profile.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { AuthInterceptorProvider } from './interceptors/jwt-interceptor';
+import { AuthInterceptorProvider } from './interceptors/jwt.interceptor';
+import { AuthGuard } from './guards/auth.guard';
+import { NotAuthGuard } from './guards/notAuth.guard';
+import { SuccessComponent } from './success/success.component';
 
 @NgModule({
   declarations: [
@@ -38,6 +41,7 @@ import { AuthInterceptorProvider } from './interceptors/jwt-interceptor';
     PetProfileComponent,
     PetProfileVaccineComponent,
     NotFoundComponent,
+    SuccessComponent,
   ],
   imports: [
     MatToolbarModule,
@@ -56,7 +60,11 @@ import { AuthInterceptorProvider } from './interceptors/jwt-interceptor';
     AppRoutingModule, // this must be the last
     NgbModule,
   ],
-  providers: [AuthInterceptorProvider],
+  providers: [
+    AuthInterceptorProvider,
+    AuthGuard,
+    NotAuthGuard
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

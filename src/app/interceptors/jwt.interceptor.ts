@@ -1,11 +1,9 @@
 import { HttpEvent, HttpHandler, HttpInterceptor, HttpRequest, HTTP_INTERCEPTORS } from "@angular/common/http";
-import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
 
 export class AuthInterceptor implements HttpInterceptor {
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    console.log("interceptor visited to verify jwt!");
     const token = localStorage.getItem("token");
     if (token) {
       const cloned = req.clone({
