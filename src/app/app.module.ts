@@ -1,29 +1,27 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { AuthModule } from './auth/auth.module';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
-
-
+import { HttpClientModule } from '@angular/common/http';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 // Angular Materials
+import {MatInputModule} from '@angular/material/input';
 import { MatCardModule } from '@angular/material/card';
 import { MatListModule } from '@angular/material/list';
 import { MatExpansionModule } from '@angular/material/expansion';
-import { MatIconModule } from '@angular/material/icon'
 import { MatTableModule } from '@angular/material/table'
 import { MatSidenavModule } from '@angular/material/sidenav'
-import { MatToolbarModule } from '@angular/material/toolbar'
-import { MatButtonModule } from '@angular/material/button';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
-
 import { FormsModule }   from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { MatIconModule } from '@angular/material/icon';
+import {MatButtonModule} from '@angular/material/button';
+import {MatToolbarModule} from '@angular/material/toolbar';
 
 
 import { PetProfileVaccineComponent } from './pet-profile-vaccine/pet-profile-vaccine.component'
@@ -39,6 +37,12 @@ import { PetBathComponent } from './pet-bath/pet-bath.component';
 import { PetAppointmentComponent } from './pet-appointment/pet-appointment.component';
 import { PetFoodComponent } from './pet-food/pet-food.component';
 
+import { NotFoundComponent } from './not-found/not-found.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { AuthInterceptorProvider } from './interceptors/jwt.interceptor';
+import { AuthGuard } from './guards/auth.guard';
+import { NotAuthGuard } from './guards/notAuth.guard';
+import { SuccessComponent } from './success/success.component';
 
 @NgModule({
   declarations: [
@@ -55,10 +59,15 @@ import { PetFoodComponent } from './pet-food/pet-food.component';
     PetBathComponent,
     PetAppointmentComponent,
     PetFoodComponent,
+    NotFoundComponent,
+    SuccessComponent,
   ],
   imports: [
+    MatToolbarModule,
+    MatInputModule,
+    MatFormFieldModule,
+    FlexLayoutModule,
     BrowserModule,
-    AppRoutingModule,
     BrowserAnimationsModule,
     MatCardModule,
     MatListModule,
@@ -66,16 +75,21 @@ import { PetFoodComponent } from './pet-food/pet-food.component';
     MatIconModule,
     MatTableModule,
     MatSidenavModule,
-    MatToolbarModule,
     MatButtonModule,
     MatDividerModule,
     MatGridListModule,
-    MatFormFieldModule,
     MatSnackBarModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    AuthModule,
+    AppRoutingModule, // this must be the last
+    NgbModule,
   ],
-  providers: [],
+  providers: [
+    AuthInterceptorProvider,
+    AuthGuard,
+    NotAuthGuard
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
