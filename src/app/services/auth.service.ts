@@ -38,7 +38,8 @@ export class AuthService {
     return this.http.post(this.link+"resetPassword", data);
   }
 
-//   confirmEmail(model: any) {
-//     return this.http.post(this.baseUrl + 'identity/confirmemail', model);
-//   }
+  confirm(data:any){
+    console.log("token:", data);
+    return this.http.post(this.link+"confirmEmail", data);
+  }
 }

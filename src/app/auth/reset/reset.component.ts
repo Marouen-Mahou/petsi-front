@@ -32,7 +32,7 @@ export class ResetComponent implements OnInit {
     data.token = this.route.snapshot.params['token'];
     this.authService.reset(data).subscribe(
       () => {
-        this.router.navigateByUrl("/login");
+        this.router.navigate(["success",{message:"Your password changed successfully!",next:"Go to login page", link:"/login"}]);
       }
     )
   }
