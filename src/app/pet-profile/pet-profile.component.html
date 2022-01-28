@@ -1,7 +1,8 @@
 <mat-card class="pet-card">
-    <mat-card-title>Shiba Inu</mat-card-title>
+    <mat-card-title class="pet-card-title">Shiba</mat-card-title>
+    <mat-divider></mat-divider>
     <mat-card-title-group>
-      <img mat-card-xl-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" >
+      <img mat-card-lg-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" >
       <mat-card-subtitle>
         <mat-list role="list">
             <mat-list-item role="listitem">Gender : Male</mat-list-item>
@@ -13,40 +14,53 @@
 </mat-card>
 
   <mat-accordion class="pet-accordion" multi>
-    <mat-expansion-panel>
+    <mat-expansion-panel class="pet-accordion">
       <mat-expansion-panel-header>
         <mat-panel-title>
             <mat-icon>vaccines</mat-icon>
           Vaccines
+          
         </mat-panel-title>
       </mat-expansion-panel-header>
+      <button  class="consult-button" [routerLink]="['vaccines']" mat-raised-button color="primary">Consult</button>
       <app-pet-profile-vaccine></app-pet-profile-vaccine>
     </mat-expansion-panel>
-    <mat-expansion-panel>
+    <mat-expansion-panel class="pet-accordion">
         <mat-expansion-panel-header>
           <mat-panel-title>
               <mat-icon>pets</mat-icon>
             Foods
           </mat-panel-title>
         </mat-expansion-panel-header>
-        <app-pet-profile-vaccine></app-pet-profile-vaccine>
+        <button  class="consult-button" [routerLink]="['foods']" mat-raised-button color="primary">Consult</button>
+        <app-pet-profile-food></app-pet-profile-food>
     </mat-expansion-panel>
-    <mat-expansion-panel>
+    <mat-expansion-panel class="pet-accordion">
         <mat-expansion-panel-header>
           <mat-panel-title>
               <mat-icon>shower</mat-icon>
             Bath
           </mat-panel-title>
         </mat-expansion-panel-header>
-        <app-pet-profile-vaccine></app-pet-profile-vaccine>
+        <app-pet-profile-bath></app-pet-profile-bath>
     </mat-expansion-panel>
-    <mat-expansion-panel>
+    <mat-expansion-panel class="pet-accordion">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+            <mat-icon>scale</mat-icon>
+          Weight
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <app-pet-profile-bath></app-pet-profile-bath>
+  </mat-expansion-panel>
+    <mat-expansion-panel class="pet-accordion">
         <mat-expansion-panel-header>
           <mat-panel-title>
               <mat-icon>today</mat-icon>
-            Schedules
+            Appointments
           </mat-panel-title>
         </mat-expansion-panel-header>
-        <app-pet-profile-vaccine></app-pet-profile-vaccine>
+        <button  class="consult-button" [routerLink]="['appointments']" mat-raised-button color="primary">Consult</button>
+        <app-pet-profile-appointment></app-pet-profile-appointment>
       </mat-expansion-panel>
   </mat-accordion>

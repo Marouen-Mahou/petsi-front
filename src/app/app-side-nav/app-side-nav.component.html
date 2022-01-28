@@ -1,0 +1,18 @@
+<img class="avatar mat-elevation-z8" src="https://source.unsplash.com/c_GmwfHBDzk/200x200" />
+
+<h4 class="name">John Smith</h4>
+<p class="designation">Pet Owner</p>
+
+<mat-divider></mat-divider>
+
+<button [routerLink]="[menu.link]" [routerLinkActive]="['activeLink']"mat-button class="menu-button" *ngFor="let menu of menuList">
+        <mat-icon>{{menu.icon}}</mat-icon>
+        <span>{{menu.title}}</span>
+</button>
+
+<mat-divider></mat-divider>
+
+<button mat-button class="menu-button">
+    <mat-icon>logout</mat-icon>
+    <span>Logout</span>
+</button>

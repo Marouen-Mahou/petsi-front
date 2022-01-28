@@ -1,0 +1,22 @@
+<mat-toolbar>
+        <button mat-icon-button *ngIf="sideNav.mode === 'over'" (click)="sideNav.toggle()">
+            <mat-icon *ngIf="!sideNav.opened">
+                menu
+            </mat-icon>
+            <mat-icon *ngIf="sideNav.opened">
+                close
+            </mat-icon>
+        </button>
+    Petsi
+</mat-toolbar>
+<mat-sidenav-container>
+    <mat-sidenav #sideNav="matSidenav" mode="side" opened>
+        <app-app-side-nav>
+        </app-app-side-nav>
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <div class="content mat-elevation-z4">
+            <router-outlet></router-outlet>
+        </div>
+    </mat-sidenav-content>
+</mat-sidenav-container>
