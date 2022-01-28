@@ -1,4 +1,5 @@
 <img src="../../../assets/pics/login_bg2.jpg" class="bg">
+<div class="alert alert-danger" *ngIf="!verified">Account not verified yet! Please check your email</div>
 <mat-grid-list cols="1" rows="1" rowHeight="100vh">
   <mat-grid-tile class="main-div">
     <mat-card class="mat-elevation-z10">

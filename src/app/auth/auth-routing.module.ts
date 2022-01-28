@@ -16,7 +16,7 @@ export const routes: Routes = [
   {path: 'logout', component: LogoutComponent, canActivate:[AuthGuard]},
   {path: 'forgotPassword', component: ForgotComponent, canActivate:[NotAuthGuard]},
   {path: 'resetPassword/:token', component: ResetComponent, canActivate:[NotAuthGuard]},
-  {path: 'confirmEmail/:token', component: ConfirmComponent},
+  {path: 'confirmEmail/:token', component: ConfirmComponent, canActivate:[NotAuthGuard]},
 ];
 
 @NgModule({

@@ -33,3 +33,13 @@ img.bg {
   padding-left: 20px;
   padding-bottom: 5px;
 }
+.resendLink{
+  color: blue;
+  text-decoration: underline;
+}
+.resendLink:hover{
+  cursor: pointer;
+}
+.alert-danger{
+  text-align: center;
+}
