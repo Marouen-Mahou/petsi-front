@@ -1,7 +1,9 @@
 import { Component, NgModule, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { elementAt } from 'rxjs';
+import { VaccineDialogComponent } from './vaccine-dialog/vaccine-dialog.component';
 import { VaccineService } from './vaccine.service';
 
 @Component({
@@ -13,7 +15,7 @@ export class PetVaccineComponent implements OnInit {
   displayedColumns = ['Name', 'Veterinary', 'Date', 'Description', 'Done', 'Actions'];
   dataSource:Vaccine[] = [];
 
-  constructor(private vaccineService: VaccineService, private snackbar: MatSnackBar) { }
+  constructor(private vaccineService: VaccineService, private snackbar: MatSnackBar, private dialog: MatDialog) { }
 
   ngOnInit(): void {
     this.getVaccines()
@@ -62,6 +64,27 @@ export class PetVaccineComponent implements OnInit {
         console.log(error)
       }
     )
+  }
+
+  updateVaccine(vaccine: Vaccine) {
+    const dialogRef = this.dialog.open(VaccineDialogComponent, {
+      data: vaccine
+    });
+
+    dialogRef.afterClosed().subscribe(updatedData => {
+      updatedData.data.vet = "6197a28776e21304b3445f3e"
+      this.vaccineService.updateVaccine(updatedData.id, updatedData.data).subscribe(
+        (response) => {
+          this.getVaccines()
+          this.snackbar.open('Vaccine updated', 'Close', {
+            duration: 3000
+          });
+        },
+        (error) => {
+          console.log(error)
+        }
+      )
+    });
   }
 
   deleteVaccine(id: string) {

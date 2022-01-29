@@ -22,6 +22,7 @@ import { FormsModule }   from '@angular/forms';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatDialogModule } from '@angular/material/dialog'
 
 
 import { PetProfileVaccineComponent } from './pet-profile-vaccine/pet-profile-vaccine.component'
@@ -43,6 +44,7 @@ import { AuthInterceptorProvider } from './interceptors/jwt.interceptor';
 import { AuthGuard } from './guards/auth.guard';
 import { NotAuthGuard } from './guards/notAuth.guard';
 import { SuccessComponent } from './success/success.component';
+import { VaccineDialogComponent } from './pet-vaccine/vaccine-dialog/vaccine-dialog.component';
 
 @NgModule({
   declarations: [
@@ -61,6 +63,7 @@ import { SuccessComponent } from './success/success.component';
     PetFoodComponent,
     NotFoundComponent,
     SuccessComponent,
+    VaccineDialogComponent,
   ],
   imports: [
     MatToolbarModule,
@@ -79,6 +82,7 @@ import { SuccessComponent } from './success/success.component';
     MatDividerModule,
     MatGridListModule,
     MatSnackBarModule,
+    MatDialogModule,
     FormsModule,
     HttpClientModule,
     AuthModule,

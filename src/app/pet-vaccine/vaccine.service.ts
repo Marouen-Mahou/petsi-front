@@ -14,7 +14,6 @@ export class VaccineService {
   }
 
   addVaccines(vaccine: Vaccine): Observable<any> {
-    console.log(vaccine)
     return this.http.post(this.link, vaccine);
   }
 

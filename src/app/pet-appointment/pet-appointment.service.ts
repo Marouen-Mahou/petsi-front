@@ -11,11 +11,19 @@ export class PetAppointmentService {
   constructor(private http:HttpClient) { }
 
   getAppointments(): Observable<any[]> {
-    return this.http.get<any[]>(this.link);
+    return this.http.get<any[]>(this.link + 'pet/619c0bf005aa5bbb9a5e3ca7');
   }
 
   addAppointment(appointment: Appointment): Observable<any> {
     return this.http.post(this.link, appointment);
+  }
+
+  updateAppointment(id: string, vaccine: Partial<Appointment>): Observable<any> {
+    return this.http.put(this.link + id, vaccine)
+  }
+
+  deleteAppointment(id: string): Observable<any> {
+    return this.http.delete(this.link + id)
   }
 }
 
@@ -23,7 +31,7 @@ interface Appointment {
   location:string,
   description:string,
   date: string,
-  vet: string,
+  vet: any,
   pet: string,
   done: boolean,
 }
