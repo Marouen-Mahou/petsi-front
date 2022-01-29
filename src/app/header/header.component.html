@@ -1,0 +1,18 @@
+<nav id="mainNavbar" class="navbar navbar-expand-md fixed-top navbar-dark py-0" [class.scrolled]="scrolled" #scrolledMenu *ngIf="loggedIn">
+  <a routerLink="/vet/profile" class="navbar-brand"><img src="../../assets/pics/logo.png" width="80px" id="logo"></a>
+  <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navLinks" aria-controls="navLinks" aria-expanded="false" aria-label="Toggle navigation" (click)="showNavLinks()">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navLinks" [class.showNavLinks]="show">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item"> <a routerLink="/vet/profile" class="nav-link">HOME</a> </li>
+        <li class="nav-item"> <a routerLink="/vet/profile" class="nav-link">PROFILE</a> </li>
+        <li class="nav-item"> <a routerLink="/about" class="nav-link">ABOUT</a> </li>
+      </ul>
+      <ul class="navbar-nav lr-auto">
+        <li class="nav-item"> <a routerLink="/logout" class="nav-link" style="padding-bottom: 20px;">LOGOUT</a> </li>
+      </ul>
+  </div>
+</nav>
+<img class="bg" src="../../assets/pics/menu_bg.jpg">
+

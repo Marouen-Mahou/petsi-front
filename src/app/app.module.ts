@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome'
 
 // Angular Materials
 import {MatInputModule} from '@angular/material/input';
@@ -43,6 +44,9 @@ import { AuthInterceptorProvider } from './interceptors/jwt.interceptor';
 import { AuthGuard } from './guards/auth.guard';
 import { NotAuthGuard } from './guards/notAuth.guard';
 import { SuccessComponent } from './success/success.component';
+import { VetModule } from './vet/vet.module';
+import { HeaderComponent } from './header/header.component';
+import { AboutComponent } from './about/about.component';
 
 @NgModule({
   declarations: [
@@ -61,8 +65,11 @@ import { SuccessComponent } from './success/success.component';
     PetFoodComponent,
     NotFoundComponent,
     SuccessComponent,
+    HeaderComponent,
+    AboutComponent,
   ],
   imports: [
+    FontAwesomeModule,
     MatToolbarModule,
     MatInputModule,
     MatFormFieldModule,
@@ -82,6 +89,7 @@ import { SuccessComponent } from './success/success.component';
     FormsModule,
     HttpClientModule,
     AuthModule,
+    VetModule,
     AppRoutingModule, // this must be the last
     NgbModule,
   ],

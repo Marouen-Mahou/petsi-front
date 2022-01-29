@@ -8,6 +8,7 @@ import { PetVaccineComponent } from './pet-vaccine/pet-vaccine.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { AuthGuard } from './guards/auth.guard';
 import { SuccessComponent } from './success/success.component';
+import { AboutComponent } from './about/about.component';
 
 const routes: Routes = [
   { path: 'user', component: AppUserLayoutComponent,canActivate:[AuthGuard], children: [
@@ -16,6 +17,7 @@ const routes: Routes = [
     { path: 'pet/foods', component: PetFoodComponent},
     { path: 'pet/appointments', component: PetAppointmentComponent},
   ]},
+  { path: 'about', component: AboutComponent},
   { path: 'success', component: SuccessComponent},
   { path: '**', component: NotFoundComponent }
 ]
