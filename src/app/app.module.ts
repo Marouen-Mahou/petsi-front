@@ -25,18 +25,8 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatToolbarModule} from '@angular/material/toolbar';
 
 
-// import { PetProfileVaccineComponent } from './pet-profile-vaccine/pet-profile-vaccine.component'
-// import { PetProfileComponent } from './pet-profile/pet-profile.component';
-// import { PetProfileFoodComponent } from './pet-profile-food/pet-profile-food.component';
-// import { PetProfileBathComponent } from './pet-profile-bath/pet-profile-bath.component';
-// import { PetProfileAppointmentComponent } from './pet-profile-appointment/pet-profile-appointment.component';
-// import { PetProfileWeightComponent } from './pet-profile-weight/pet-profile-weight.component';
 import { AppSideNavComponent } from './app-side-nav/app-side-nav.component';
 import { AppUserLayoutComponent } from './app-user-layout/app-user-layout.component';
-// import { PetVaccineComponent } from './pet-vaccine/pet-vaccine.component';
-// import { PetBathComponent } from './pet-bath/pet-bath.component';
-// import { PetAppointmentComponent } from './pet-appointment/pet-appointment.component';
-// import { PetFoodComponent } from './pet-food/pet-food.component';
 
 import { NotFoundComponent } from './not-found/not-found.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
@@ -52,18 +42,8 @@ import { PatientsModule } from './patients/patients.module';
 @NgModule({
   declarations: [
     AppComponent,
-    // PetProfileComponent,
-    // PetProfileVaccineComponent,
-    // PetProfileFoodComponent,
-    // PetProfileBathComponent,
-    // PetProfileAppointmentComponent,
-    // PetProfileWeightComponent,
     AppSideNavComponent,
     AppUserLayoutComponent,
-    // PetVaccineComponent,
-    // PetBathComponent,
-    // PetAppointmentComponent,
-    // PetFoodComponent,
     NotFoundComponent,
     SuccessComponent,
     AboutComponent,

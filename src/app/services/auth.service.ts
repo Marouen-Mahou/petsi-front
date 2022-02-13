@@ -10,7 +10,6 @@ export class AuthService {
 
   constructor(private http: HttpClient) {}
 
-  // role: string="";
 
   login(credentials: any){
     return this.http.post(this.link+"login" , credentials);
@@ -41,12 +40,6 @@ export class AuthService {
     return this.http.post(this.link+"confirmEmail", data);
   }
 
-  // setUser(role: string){
-  //   const token = localStorage.getItem("token");
-  //   console.log(String(token))
-  //   this.role= role;
-  // }
-
   decodeToken(){
     const jwt = localStorage.getItem("token") as string;
     try {
@@ -54,6 +47,5 @@ export class AuthService {
     } catch(Error) {
       return null;
     }
-    // return this.http.get(this.link+"getRole");
   }
 }

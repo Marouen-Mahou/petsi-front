@@ -4,11 +4,13 @@ import { AppUserLayoutComponent } from '../app-user-layout/app-user-layout.compo
 import { AuthGuard } from '../guards/auth.guard';
 import { DetailsComponent } from './details/details.component';
 import { PatientsListComponent } from './patients-list/patients-list.component';
+import { RequestsComponent } from './requests/requests.component';
 
 const routes: Routes = [
   { path: 'vet', component: AppUserLayoutComponent,canActivate:[AuthGuard], children: [
     { path: 'patients', component: PatientsListComponent},
-    { path: 'patient/details', component: DetailsComponent},
+    { path: 'patient/:id', component: DetailsComponent},
+    { path: 'requests', component: RequestsComponent},
   ]},
 ];
 

@@ -11,11 +11,23 @@ export class PatientsService {
 
   constructor(private http: HttpClient) { }
 
-  getPatients(){
-    return this.http.get<any[]>(this.link+"folders");
+  getPatients(id:string){
+    return this.http.get<any[]>(this.link+"folders/vetFolders/"+id);
   }
 
-  getPatient(id:any){
+  getRequests(id:string){
+    return this.http.get<any[]>(this.link+"folders/vetRequests/"+id);
+  }
+
+  getPatient(id:string){
     return this.http.get(this.link+"folders/"+id);
+  }
+
+  acceptRequest(id:string){
+    return this.http.patch(this.link+"folders/accept/"+id,{})
+  }
+
+  declineRequest(id:string){
+    return this.http.delete(this.link+"folders/"+id);
   }
 }
