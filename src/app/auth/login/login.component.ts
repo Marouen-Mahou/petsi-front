@@ -10,6 +10,7 @@ import { AuthService } from 'src/app/services/auth.service';
 export class LoginComponent implements OnInit {
 
   error="";
+  verified=true;
 
   constructor(
     private authService: AuthService,
@@ -18,14 +19,14 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {}
 
-  retry(){
-    this.error = "";
-  }
-
   login(credentials: any){
+    this.error="";
+    this.verified=true;
     this.authService.login(credentials).subscribe(
       (rep:any) => {
         const token = rep.access_token;
+        const role = rep.user.role;
+        // this.authService.setUser(role);
         const link = ["user"];
         localStorage.setItem("token", token) ;
         this.router.navigate(link);
@@ -33,6 +34,8 @@ export class LoginComponent implements OnInit {
       (err) => {
         if (err.error.message == "Wrong credentials!"){
           this.error="Wrong Credentials!";
+        }else if(err.error.message == "Account not verified yet!"){
+          this.verified = false;
         }
       }
     )

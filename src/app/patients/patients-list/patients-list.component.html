@@ -1,0 +1,14 @@
+<div class="newer bg-white px-3">
+  <div  *ngFor="let patient of patients" id="testimonials">
+      <div class="testimonial p-3 d-flex justify-newer-between align-items-start alert alert-dismissible fade show rounded-0" role="alert">
+          <div class=" d-flex flex-column justify-newer-center align-newer-around">
+            <img src="{{ patient.pet.image }}" alt="">
+            <div class="btn mt-3">View</div>
+          </div>
+          <div class="mx-3" >
+            <strong class="name mb-2">{{ patient.pet.name }}</strong>
+            <p class="text-p" *ngIf="patient.rapport"><small style="color: gray;">rapport: </small> {{ patient.rapport }}</p>
+          </div>
+      </div>
+  </div>
+</div>

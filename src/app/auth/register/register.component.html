@@ -1,75 +1,83 @@
-<img src="../../../assets/pics/login_bg2.jpg" class="bg">
-<mat-grid-list cols="1" rowHeight="fit" style="height: 1000px">
-  <mat-grid-tile class="main-div">
-    <mat-card class="mat-elevation-z10">
-      <mat-toolbar color="primary">Sign Up</mat-toolbar>
-      <form fxLayoutAlign="stretch" fxLayout="column" class="login-form" #registerForm="ngForm">
-        <mat-form-field>
-          <input matInput type="text" name="firstName" ngModel required placeholder="First Name" id="firstName" minlength="3">
-        </mat-form-field>
+<div class="container-fluid">
+  <div class="row no-gutter">
+    <div class="col-md-6 d-none d-md-flex bg-image"></div>
+    <div class="col-md-6 bg-light">
+      <div class="login d-flex align-items-center py-5">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-7 col-xl-6 mx-auto">
+              <h1 class="center">SIGN UP PAGE</h1> <br>
+              <form fxLayoutAlign="stretch" fxLayout="column" class="login-form" #registerForm="ngForm">
+                <mat-form-field>
+                  <input matInput type="text" name="firstName" ngModel required placeholder="First Name" id="firstName" minlength="3">
+                </mat-form-field>
 
-        <mat-form-field>
-          <input matInput type="text" name="lastName" ngModel required placeholder="Last Name" id="lastName" minlength="3">
-        </mat-form-field>
+                <mat-form-field>
+                  <input matInput type="text" name="lastName" ngModel required placeholder="Last Name" id="lastName" minlength="3">
+                </mat-form-field>
 
-        <mat-form-field>
-          <input matInput email type="text" name="email" ngModel required id="email"
-              placeholder="Enter email" #emailInput="ngModel">
-          <mat-hint class="hint" *ngIf="emailInput.invalid && emailInput.dirty">Invalid email!</mat-hint>
-        </mat-form-field>
+                <mat-form-field>
+                  <input matInput email type="text" name="email" ngModel required id="email"
+                      placeholder="Enter email" #emailInput="ngModel">
+                  <mat-hint class="hint" *ngIf="emailInput.invalid && emailInput.dirty">Invalid email!</mat-hint>
+                </mat-form-field>
 
-        <mat-form-field>
-          <input matInput type="password" name="password" ngModel required placeholder="Password" id="password" minlength="4" #pwdInput="ngModel">
-          <mat-hint class="hint" *ngIf="pwdInput.invalid && pwdInput.dirty">Password must contain at least 4 characters!</mat-hint>
-        </mat-form-field>
+                <mat-form-field>
+                  <input matInput type="password" name="password" ngModel required placeholder="Password" id="password" minlength="4" #pwdInput="ngModel">
+                  <mat-hint class="hint" *ngIf="pwdInput.invalid && pwdInput.dirty">Password must contain at least 4 characters!</mat-hint>
+                </mat-form-field>
 
-        <mat-form-field>
-          <mat-label>Birth Date</mat-label>
-          <input matInput [matDatepicker]="picker" name="birthdate" ngModel required id="birthDate" placeholder="mm/dd/yyyy" [min]="minDate" [max]="maxDate">
-          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-          <mat-datepicker #picker></mat-datepicker>
-        </mat-form-field>
+                <mat-form-field>
+                  <mat-label>Birth Date</mat-label>
+                  <input matInput [matDatepicker]="picker" name="birthdate" ngModel required id="birthDate" placeholder="mm/dd/yyyy" [min]="minDate" [max]="maxDate">
+                  <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                  <mat-datepicker #picker></mat-datepicker>
+                </mat-form-field>
 
-        <mat-form-field>
-          <ngx-mat-file-input placeholder="Profile Picture" name="avatar" ngModel id="avatar" accept="image/png, image/jpeg" (change)="onSelectedFile($event)"></ngx-mat-file-input>
-          <mat-icon matSuffix>folder</mat-icon>
-        </mat-form-field>
+                <mat-form-field>
+                  <ngx-mat-file-input placeholder="Profile Picture" name="avatar" ngModel id="avatar" accept="image/png, image/jpeg" (change)="onSelectedFile($event)"></ngx-mat-file-input>
+                  <mat-icon matSuffix>folder</mat-icon>
+                </mat-form-field>
 
-        <mat-radio-group ngModel name="gender" required>
-          <input matInput placeholder="Gender" disabled>
-          <mat-radio-button value="male">Male</mat-radio-button>
-          <mat-radio-button value="female">Female</mat-radio-button>
-        </mat-radio-group>
+                <mat-radio-group ngModel name="gender" required style="text-align: left;">
+                  <input matInput placeholder="Gender" disabled>
+                  <mat-radio-button value="male">Male</mat-radio-button>
+                  <mat-radio-button value="female">Female</mat-radio-button>
+                </mat-radio-group>
 
-        <mat-form-field>
-          <input matInput type="text" ngModel name="phone" ngModel required id="phone" maxlength="8" minlength="8" #phoneInput="ngModel" (keypress)="validatePhone($event)" placeholder="Phone Number">
-          <mat-hint class="hint" *ngIf="phoneInput.invalid && phoneInput.dirty">Phone number must contain 8 numbers!</mat-hint>
-        </mat-form-field>
+                <mat-form-field>
+                  <input matInput type="text" ngModel name="phone" ngModel required id="phone" maxlength="8" minlength="8" #phoneInput="ngModel" (keypress)="validatePhone($event)" placeholder="Phone Number">
+                  <mat-hint class="hint" *ngIf="phoneInput.invalid && phoneInput.dirty">Phone number must contain 8 numbers!</mat-hint>
+                </mat-form-field>
 
-        <mat-form-field>
-          <input matInput type="text" ngModel name="adress" ngModel required id="address" placeholder="Address">
-        </mat-form-field>
+                <mat-form-field>
+                  <input matInput type="text" ngModel name="adress" ngModel required id="address" placeholder="Address">
+                </mat-form-field>
 
-        <mat-form-field>
-          <mat-label>Role</mat-label>
-          <select matNativeControl ngModel name="role" required>
-            <option selected value="pet owner">Pet Owner</option>
-            <option value="veterinary">Veterinary</option>
-          </select>
-        </mat-form-field>
+                <mat-form-field>
+                  <mat-label>Role</mat-label>
+                  <select matNativeControl ngModel name="role" required>
+                    <option selected value="pet owner">Pet Owner</option>
+                    <option value="veterinary">Veterinary</option>
+                  </select>
+                </mat-form-field>
 
-        <div *ngIf="error" class="alert alert-danger">
-          {{ error }}
+                <div *ngIf="error" class="alert alert-danger">
+                  {{ error }}
+                </div>
+
+                <br>
+                <button mat-raised-button color="primary" type="submit" (click)="register(registerForm.value)" [disabled]="registerForm.invalid">Sign up<i class="fas fa-sign-in-alt"></i></button>
+
+              </form>
+              <div class="signin">
+                <small>You already have an account?</small>
+                <a routerLink="/login">Sign in</a>
+              </div>
+            </div>
+          </div>
         </div>
-
-        <br>
-        <button mat-raised-button color="primary" type="submit" (click)="register(registerForm.value)" [disabled]="registerForm.invalid">Sign up<i class="fas fa-sign-in-alt"></i></button>
-
-      </form>
-      <div class="signin">
-        <small>You already have an account?</small>
-        <a routerLink="/login">Sign in</a>
       </div>
-    </mat-card>
-  </mat-grid-tile>
-</mat-grid-list>
+    </div>
+  </div>
+</div>

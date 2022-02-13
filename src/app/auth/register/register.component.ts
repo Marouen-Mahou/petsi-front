@@ -46,9 +46,8 @@ export class RegisterComponent implements OnInit {
     data.append("phone",model.phone);
     this.authService.register(data).subscribe(
       (rep) => {
-        console.log("rep", rep);
-        const link = ["pet"];
-        this.router.navigate(link);
+        const link = ["success"];
+        this.router.navigate([link,{message:"You registered successfully!\nOne step left: a verification link was sent to your email",next:"Go to login page", link:"/login"}]);
       },
       (err)=>{
         console.log("error:",err);

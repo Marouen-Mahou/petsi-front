@@ -1,35 +1,33 @@
 .ng-invalid.ng-touched{
   border-color: red;
 }
-mat-toolbar{
-  border-radius: 10px 10px 0 0;
-}
-.main-div mat-card{
-  padding: 0px;
-  width: 35%;
-  border-radius: 10px;
-}
 .login-form{
   padding: 20px;
 }
 .hint{
   color: red;
 }
-img.bg {
-  /* Set rules to fill background */
-  min-height: 100%;
-  min-width: 1024px;
-
-  /* Set up proportionate scaling */
-  width: 100%;
-  height: auto;
-
-  /* Set up positioning */
-  position: fixed;
-  top: 0;
-  left: 0;
-}
 .signup{
   padding-left: 20px;
   padding-bottom: 5px;
+}
+.alert-danger{
+  text-align: center;
+}
+
+.login,
+.image {
+    min-height: 100vh
+}
+
+.bg-image {
+    background-image: url('../../../assets/pics/login_side.jpg');
+    background-size: cover;
+    background-position: center center
+}
+.title{
+  font-size:xx-large;
+}
+.row{
+  text-align: center;
 }

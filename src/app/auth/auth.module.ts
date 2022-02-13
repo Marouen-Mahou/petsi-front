@@ -25,6 +25,7 @@ import { AuthGuard } from '../guards/auth.guard';
 import { NotAuthGuard } from '../guards/notAuth.guard';
 import { ForgotComponent } from './forgot/forgot.component';
 import { ResetComponent } from './reset/reset.component';
+import { ConfirmComponent } from './confirm/confirm.component';
 
 
 
@@ -37,7 +38,8 @@ import { ResetComponent } from './reset/reset.component';
     RegisterComponent,
     LogoutComponent,
     ForgotComponent,
-    ResetComponent
+    ResetComponent,
+    ConfirmComponent
   ],
   imports: [
     MatSelectModule,
