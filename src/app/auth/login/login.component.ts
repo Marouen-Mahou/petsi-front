@@ -25,6 +25,8 @@ export class LoginComponent implements OnInit {
     this.authService.login(credentials).subscribe(
       (rep:any) => {
         const token = rep.access_token;
+        const role = rep.user.role;
+        // this.authService.setUser(role);
         const link = ["user"];
         localStorage.setItem("token", token) ;
         this.router.navigate(link);
