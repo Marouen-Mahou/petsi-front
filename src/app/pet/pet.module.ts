@@ -26,12 +26,15 @@ import { FormsModule }   from '@angular/forms';
 import { MatIconModule } from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
 import {MatToolbarModule} from '@angular/material/toolbar';
+import { MatDialogModule } from '@angular/material/dialog';
 import { HttpClientModule } from '@angular/common/http';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { PetAppointmentComponent } from './pet-appointment/pet-appointment.component';
+import { PetsComponent } from './pets/pets.component';
+import { PetsDialogComponent } from './pets/pets-dialog/pets-dialog.component';
 
 
 @NgModule({
@@ -46,6 +49,8 @@ import { PetAppointmentComponent } from './pet-appointment/pet-appointment.compo
     PetBathComponent,
     PetFoodComponent,
     PetAppointmentComponent,
+    PetsComponent,
+    PetsDialogComponent,
 
   ],
   imports: [
@@ -66,6 +71,7 @@ import { PetAppointmentComponent } from './pet-appointment/pet-appointment.compo
     MatDividerModule,
     MatGridListModule,
     MatSnackBarModule,
+    MatDialogModule,
     FormsModule,
     HttpClientModule,
     CommonModule,

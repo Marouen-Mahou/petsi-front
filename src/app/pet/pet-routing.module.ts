@@ -6,9 +6,11 @@ import { PetAppointmentComponent } from './pet-appointment/pet-appointment.compo
 import { PetFoodComponent } from './pet-food/pet-food.component';
 import { PetProfileComponent } from './pet-profile/pet-profile.component';
 import { PetVaccineComponent } from './pet-vaccine/pet-vaccine.component';
+import { PetsComponent } from './pets/pets.component';
 
 const routes: Routes = [
   { path: 'user', component: AppUserLayoutComponent,canActivate:[AuthGuard], children: [
+    { path: 'pets', component: PetsComponent},
     { path: 'pet', component: PetProfileComponent},
     { path: 'pet/vaccines', component: PetVaccineComponent},
     { path: 'pet/foods', component: PetFoodComponent},
