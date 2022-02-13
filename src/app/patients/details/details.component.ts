@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { PatientsService } from '../patients.service';
-import { PatientModel } from '../../models/patient.model'
 
 @Component({
   selector: 'app-details',
@@ -13,6 +12,8 @@ export class DetailsComponent implements OnInit {
   id = this.route.snapshot.params['id'];
   patient:any;
   rapport :string="";
+  newRapport = this.rapport;
+  edit = false;
 
   constructor(
     private route: ActivatedRoute,
@@ -24,11 +25,32 @@ export class DetailsComponent implements OnInit {
       (rep) => {
         this.patient = rep;
         this.rapport = this.patient.rapport;
+        this.newRapport = this.rapport;
       },
       (err) => {
         console.log(err);
       }
     )
+
+  }
+
+  editToggle(){
+    this.edit = !this.edit;
+  }
+
+  addRapport(){
+    this.patientsService.addRapport(this.patient._id,this.newRapport).subscribe(
+      (rep) => {
+        this.rapport = this.newRapport;
+      },
+      (err) => {
+        console.log(err);
+      }
+    )
+  }
+
+  cancelRapport(){
+    this.newRapport = this.rapport;
 
   }
 

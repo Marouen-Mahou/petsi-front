@@ -6,28 +6,32 @@ import { Injectable } from '@angular/core';
 })
 export class PatientsService {
 
-  link = "http://localhost:3000/";
+  link = "http://localhost:3000/folders/";
 
 
   constructor(private http: HttpClient) { }
 
   getPatients(id:string){
-    return this.http.get<any[]>(this.link+"folders/vetFolders/"+id);
+    return this.http.get<any[]>(this.link+"vetFolders/"+id);
   }
 
   getRequests(id:string){
-    return this.http.get<any[]>(this.link+"folders/vetRequests/"+id);
+    return this.http.get<any[]>(this.link+"vetRequests/"+id);
   }
 
   getPatient(id:string){
-    return this.http.get(this.link+"folders/"+id);
+    return this.http.get(this.link+id);
   }
 
   acceptRequest(id:string){
-    return this.http.patch(this.link+"folders/accept/"+id,{})
+    return this.http.patch(this.link+"accept/"+id,{})
   }
 
   declineRequest(id:string){
-    return this.http.delete(this.link+"folders/"+id);
+    return this.http.delete(this.link+id);
+  }
+
+  addRapport(id:string,rapport:string){
+    return this.http.patch(this.link+"addRapport/"+id,{rapport})
   }
 }

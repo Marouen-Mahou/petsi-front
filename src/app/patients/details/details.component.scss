@@ -14,6 +14,10 @@
   width: 50px;
 }
 
+.rapport-wrapper{
+  white-space: pre-line;
+}
+
 #edit:hover {
   color: #fff;
   background-color: #167cdb;
@@ -32,4 +36,16 @@
 
 .form-group textarea.form-input {
   height: 150px;
+}
+
+.form-group textarea.form-input:focus {
+  border: 3px solid blue;
+}
+
+.hide{
+  display: none;
+}
+
+.btn{
+  margin: 5px;
 }

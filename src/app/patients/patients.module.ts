@@ -8,6 +8,7 @@ import { PetModule } from '../pet/pet.module';
 import { MatCardModule } from '@angular/material/card';
 import { RequestsComponent } from './requests/requests.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     PatientsRoutingModule,
     PetModule,
     MatCardModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    FormsModule,
   ]
 })
 export class PatientsModule { }

@@ -2,14 +2,19 @@
 <div class="d-flex justify-content-between mt-2">
     <div> <span>Rapport:</span></div>
 </div>
-<mat-card id="rapport">{{rapport}}
-  <mat-card-actions id="edit">Edit</mat-card-actions>
-  <div class="col-xs-12">
-    <div class="form-group">
-      <textarea class="form-input" required="" placeholder="Your text"></textarea>
-    </div>
+<mat-card id="rapport">
+  <div [ngClass]="edit ? 'hide' : ''" class="rapport-wrapper">{{rapport}}
+    <mat-card-actions id="edit" (click)="editToggle()">Edit</mat-card-actions>
   </div>
-  <a class="btn btn-primary pull-right">submit</a>
+  <div [ngClass]="edit ? '' : 'hide'">
+    <div class="col-xs-12">
+      <div class="form-group">
+        <textarea [(ngModel)]="newRapport" class="form-input form-control" placeholder="Rapport..."></textarea>
+      </div>
+    </div>
+    <a class="btn btn-primary pull-right" (click)="editToggle();addRapport()">Submit</a>
+    <a class="btn btn-danger pull-right" (click)="editToggle();cancelRapport()">Cancel</a>
+  </div>
 </mat-card>
 
 
