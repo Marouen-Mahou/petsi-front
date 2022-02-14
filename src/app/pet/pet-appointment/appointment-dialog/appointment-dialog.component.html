@@ -5,23 +5,6 @@
       <form #formulaire="ngForm">
         <br />
         <div class="form-group">
-          <label for="name">Name</label>
-          <input
-            required
-            type="text"
-            #nameInput="ngModel"
-            class="form-control"
-            [(ngModel)]="data.name"
-            name="name"
-            id="name"
-            placeholder="Enter name"
-          />
-        </div>
-        <div class="alert alert-danger mt-2 mb-0" *ngIf="nameInput.invalid && nameInput.touched">
-            Name is required
-        </div>
-        <br />
-        <div class="form-group">
           <label for="veterinary">Veterinary</label>
           <select
             required
@@ -40,6 +23,23 @@
         </div>
         <div class="alert alert-danger mt-2 mb-0" *ngIf="vetInput.invalid && vetInput.touched">
           Veterinary is required
+        </div>
+        <br />
+        <div class="form-group">
+          <label for="name">Location</label>
+          <input
+            required
+            type="text"
+            #nameInput="ngModel"
+            class="form-control"
+            [(ngModel)]="data.place"
+            name="place"
+            id="location"
+            placeholder="Enter location"
+          />
+        </div>
+        <div class="alert alert-danger mt-2 mb-0" *ngIf="nameInput.invalid && nameInput.touched">
+            Name is required
         </div>
         <br />
         <div class="form-group">
@@ -64,7 +64,7 @@
             rows="3"
             class="form-control"
             name="description"
-            [(ngModel)]="data.description"
+            [(ngModel)]="data.report"
             id="desc"
             placeholder="Enter description"
           ></textarea>

@@ -1,17 +1,17 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
-import { VaccineService } from '../vaccine.service';
+import { PetBathService } from '../pet-bath.service';
 import { NgForm } from '@angular/forms';
 
 @Component({
-  selector: 'app-vaccine-dialog',
-  templateUrl: './vaccine-dialog.component.html',
-  styleUrls: ['./vaccine-dialog.component.scss']
+  selector: 'app-bath-dialog',
+  templateUrl: './bath-dialog.component.html',
+  styleUrls: ['./bath-dialog.component.scss']
 })
-export class VaccineDialogComponent implements OnInit {
+export class BathDialogComponent implements OnInit {
   vets: Vet[] = []
 
-  constructor(private dialogRef: MatDialogRef<VaccineDialogComponent>, @Inject(MAT_DIALOG_DATA) public data: Vaccine, private vaccineService: VaccineService) { }
+  constructor(private dialogRef: MatDialogRef<BathDialogComponent>, @Inject(MAT_DIALOG_DATA) public data: Bath, private bathService: PetBathService) { }
 
   ngOnInit(): void {
     this.getVets()
@@ -28,7 +28,7 @@ export class VaccineDialogComponent implements OnInit {
   }
 
   getVets() {
-    this.vaccineService.getAllVets().subscribe(
+    this.bathService.getAllVets().subscribe(
       (response) => {
         this.vets = response
       },
@@ -39,10 +39,8 @@ export class VaccineDialogComponent implements OnInit {
   }
 }
 
-export interface Vaccine {
+export interface Bath {
   _id: string,
-  name: string;
-  vet: any;
   pet: any;
   date: string;
   description: string;
@@ -54,3 +52,4 @@ export interface Vet {
   firstName: string,
   lastName: string
 }
+

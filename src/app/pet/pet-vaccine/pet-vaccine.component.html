@@ -23,7 +23,7 @@
       <br />
       <div class="form-group">
         <label for="veterinary">Veterinary</label>
-        <input
+        <select
           required
           type="text"
           class="form-control"
@@ -31,8 +31,11 @@
           #vetInput="ngModel"
           name="vet"
           id="veterinary"
-          placeholder="Enter your veterinary"
-        />
+        >
+          <option *ngFor="let vet of vets" [ngValue]="vet._id">
+            {{vet.firstName + ' ' + vet.lastName}}
+          </option>
+        </select>
       </div>
       <div class="alert alert-danger mt-2 mb-0" *ngIf="vetInput.invalid && vetInput.touched">
         Veterinary is required

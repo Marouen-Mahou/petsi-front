@@ -6,7 +6,7 @@
       <mat-card-subtitle>
         <mat-list role="list">
             <mat-list-item role="listitem">Gender : {{ pet.sex}}</mat-list-item>
-            <mat-list-item role="listitem">Birthday : {{ pet.birthday}}</mat-list-item>
+            <mat-list-item role="listitem">Birthday :  {{ pet.birthday}}</mat-list-item>
             <mat-list-item role="listitem">Type : {{ pet.type}}</mat-list-item>
             <mat-list-item role="listitem">Breed : {{ pet.breed}}</mat-list-item>
         </mat-list>
@@ -43,6 +43,7 @@
             Bath
           </mat-panel-title>
         </mat-expansion-panel-header>
+        <button  class="consult-button" [routerLink]="['baths']" mat-raised-button color="primary">Consult</button>
         <app-pet-profile-bath></app-pet-profile-bath>
     </mat-expansion-panel>
     <mat-expansion-panel class="pet-accordion">

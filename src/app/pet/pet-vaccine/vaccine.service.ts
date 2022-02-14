@@ -6,23 +6,27 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class VaccineService {
-  link = 'http://localhost:3000/vaccines/'
+  link = 'http://localhost:3000/'
   constructor(private http:HttpClient) { }
 
-  getVaccines(): Observable<any[]> {
-    return this.http.get<any[]>(this.link + 'pet/619c0bf005aa5bbb9a5e3ca7');
+  getVaccines(id: string): Observable<any[]> {
+    return this.http.get<any[]>(this.link + 'vaccines/pet/' + id);
   }
 
   addVaccines(vaccine: Vaccine): Observable<any> {
-    return this.http.post(this.link, vaccine);
+    return this.http.post(this.link + 'vaccines', vaccine);
   }
 
   updateVaccine(id: string, vaccine: Partial<Vaccine>): Observable<any> {
-    return this.http.put(this.link + id, vaccine)
+    return this.http.put(this.link + 'vaccines/' + id, vaccine)
   }
 
   deleteVaccine(id: string): Observable<any> {
-    return this.http.delete(this.link + id)
+    return this.http.delete(this.link + 'vaccines/' + id)
+  }
+
+  getAllVets(): Observable<any> {
+    return this.http.get(this.link + 'users/vets')
   }
 }
 

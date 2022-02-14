@@ -5,6 +5,8 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { elementAt } from 'rxjs';
 import { VaccineDialogComponent } from './vaccine-dialog/vaccine-dialog.component';
 import { VaccineService } from './vaccine.service';
+import { Router, ActivatedRoute, ParamMap } from '@angular/router';
+import * as moment from "moment";
 
 @Component({
   selector: 'app-pet-vaccine',
@@ -14,17 +16,28 @@ import { VaccineService } from './vaccine.service';
 export class PetVaccineComponent implements OnInit {
   displayedColumns = ['Name', 'Veterinary', 'Date', 'Description', 'Done', 'Actions'];
   dataSource:Vaccine[] = [];
+  vets: Vet[] = [];
+  petId:any = '';
 
-  constructor(private vaccineService: VaccineService, private snackbar: MatSnackBar, private dialog: MatDialog) { }
+  constructor(private vaccineService: VaccineService,
+     private snackbar: MatSnackBar,
+      private dialog: MatDialog,
+      private route: ActivatedRoute
+      ) { }
 
   ngOnInit(): void {
+    this.route.paramMap.subscribe(params => {
+      this.petId = params.get('id');
+    })
+    this.getVets()
     this.getVaccines()
   }
 
   getVaccines( ){
-    this.vaccineService.getVaccines().subscribe(
+    this.vaccineService.getVaccines(this.petId).subscribe(
       (vaccines) => {
         this.dataSource = vaccines.filter(el => !el.deleted )
+        this.dataSource = this.dataSource.map(el => ({...el, date: moment(el.date).format("DD/MM/YYYY")}))
       },
       (error) => {
         console.log(error)
@@ -34,8 +47,7 @@ export class PetVaccineComponent implements OnInit {
 
   addVaccine(form: NgForm) {
     let vaccine = form.form.value
-    vaccine.pet = "619c0bf005aa5bbb9a5e3ca7"
-    vaccine.vet = "6197a28776e21304b3445f3e"
+    vaccine.pet = this.petId
     vaccine.done = "false"
 
     this.vaccineService.addVaccines(vaccine).subscribe(
@@ -67,12 +79,11 @@ export class PetVaccineComponent implements OnInit {
   }
 
   updateVaccine(vaccine: Vaccine) {
-    const dialogRef = this.dialog.open(VaccineDialogComponent, {
+    const dialogRef = this.dialog.open(VaccineDialogComponent,{
       data: vaccine
     });
 
     dialogRef.afterClosed().subscribe(updatedData => {
-      updatedData.data.vet = "6197a28776e21304b3445f3e"
       this.vaccineService.updateVaccine(updatedData.id, updatedData.data).subscribe(
         (response) => {
           this.getVaccines()
@@ -101,6 +112,17 @@ export class PetVaccineComponent implements OnInit {
     )
   }
 
+  getVets() {
+    this.vaccineService.getAllVets().subscribe(
+      (response) => {
+        this.vets = response
+      },
+      (error) => {
+        console.log(error)
+      }
+    )
+  }
+
 }
 
 
@@ -112,4 +134,10 @@ export interface Vaccine {
   date: string;
   description: string;
   done: boolean;
+}
+
+export interface Vet {
+  _id: string,
+  firstName: string,
+  lastName: string,
 }

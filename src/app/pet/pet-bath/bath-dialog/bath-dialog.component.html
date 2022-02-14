@@ -1,46 +1,8 @@
-<h2 mat-dialog-title>Update vaccine</h2>
+<h2 mat-dialog-title>Update bath</h2>
 <mat-divider></mat-divider>
 <mat-dialog-content class="mat-typography">
     
       <form #formulaire="ngForm">
-        <br />
-        <div class="form-group">
-          <label for="name">Name</label>
-          <input
-            required
-            type="text"
-            #nameInput="ngModel"
-            class="form-control"
-            [(ngModel)]="data.name"
-            name="name"
-            id="name"
-            placeholder="Enter name"
-          />
-        </div>
-        <div class="alert alert-danger mt-2 mb-0" *ngIf="nameInput.invalid && nameInput.touched">
-            Name is required
-        </div>
-        <br />
-        <div class="form-group">
-          <label for="veterinary">Veterinary</label>
-          <select
-            required
-            type="text"
-            class="form-control"
-            #vetInput="ngModel"
-            name="vet"
-            [(ngModel)]="data.vet._id"
-            id="veterinary"
-            placeholder="Enter your veterinary"
-          >
-          <option *ngFor="let vet of vets" [ngValue]="vet._id">
-            {{vet.firstName + ' ' + vet.lastName}}
-          </option>
-        </select>
-        </div>
-        <div class="alert alert-danger mt-2 mb-0" *ngIf="vetInput.invalid && vetInput.touched">
-          Veterinary is required
-        </div>
         <br />
         <div class="form-group">
           <label for="date">Date</label>
