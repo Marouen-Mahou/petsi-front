@@ -17,12 +17,14 @@ import { MatIconModule } from '@angular/material/icon'
 
 import { PetProfileVaccineComponent } from './pet-profile-vaccine/pet-profile-vaccine.component'
 import { PetProfileComponent } from './pet-profile/pet-profile.component';
+import { PetListComponent } from './pets-list/pet-list.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     PetProfileComponent,
-    PetProfileVaccineComponent
+    PetProfileVaccineComponent,
+    PetListComponent
   ],
   imports: [
     BrowserModule,
