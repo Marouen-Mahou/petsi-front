@@ -11,10 +11,10 @@ import { PetsComponent } from './pets/pets.component';
 const routes: Routes = [
   { path: 'user', component: AppUserLayoutComponent,canActivate:[AuthGuard], children: [
     { path: 'pets', component: PetsComponent},
-    { path: 'pet', component: PetProfileComponent},
-    { path: 'pet/vaccines', component: PetVaccineComponent},
-    { path: 'pet/foods', component: PetFoodComponent},
-    { path: 'pet/appointments', component: PetAppointmentComponent},
+    { path: 'pets/:id/pet', component: PetProfileComponent},
+    { path: 'pets/:id/pet/vaccines', component: PetVaccineComponent},
+    { path: 'pets/:id/pet/foods', component: PetFoodComponent},
+    { path: 'pets/:id/pet/appointments', component: PetAppointmentComponent},
   ]},
 ];
 

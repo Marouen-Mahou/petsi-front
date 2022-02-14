@@ -1,4 +1,4 @@
-<h2 mat-dialog-title>Update vaccine</h2>
+<h2 mat-dialog-title>Add pet</h2>
 <mat-divider></mat-divider>
 <mat-dialog-content class="mat-typography">
     
@@ -22,53 +22,91 @@
         </div>
         <br />
         <div class="form-group">
-          <label for="veterinary">Veterinary</label>
+          <label for="type">Type</label>
           <input
             required
             type="text"
             class="form-control"
-            #vetInput="ngModel"
+            #typeInput="ngModel"
             ngModel
-            name="vet"
-            id="veterinary"
-            placeholder="Enter your veterinary"
+            name="type"
+            id="type"
+            placeholder="Enter your type"
           />
         </div>
-        <div class="alert alert-danger mt-2 mb-0" *ngIf="vetInput.invalid && vetInput.touched">
-          Veterinary is required
+        <div class="alert alert-danger mt-2 mb-0" *ngIf="typeInput.invalid && typeInput.touched">
+          Type is required
         </div>
         <br />
         <div class="form-group">
-          <label for="date">Date</label>
+          <label for="breed">Breed</label>
+          <input
+            required
+            type="text"
+            class="form-control"
+            #breedInput="ngModel"
+            ngModel
+            name="breed"
+            id="breed"
+            placeholder="Enter your breed"
+          />
+        </div>
+        <div class="alert alert-danger mt-2 mb-0" *ngIf="breedInput.invalid && breedInput.touched">
+          Breed is required
+        </div>
+        <br />
+        <div class="form-group">
+          <label for="birthday">Birthday</label>
           <input
             required
             type="date"
-            #dateInput="ngModel"
+            #birthdayInput="ngModel"
             ngModel
-            name="date"
+            name="birthday"
             class="form-control"
-            id="date"
+            id="birthday"
           />
         </div>
-        <div class="alert alert-danger mt-2 mb-0" *ngIf="dateInput.invalid && dateInput.touched">
-          Date is required
-      </div>
-        <br />
-        <div class="form-group">
-          <label for="desc">Description</label>
-          <textarea
-            rows="3"
-            class="form-control"
-            name="description"
-            id="desc"
-            placeholder="Enter description"
-          ></textarea>
+        <div class="alert alert-danger mt-2 mb-0" *ngIf="birthdayInput.invalid && birthdayInput.touched">
+          Birthday is required
         </div>
+        <br />
+        <div class="form-group" >
+          <label for="gender">Gender</label>
+          <select class="form-control"
+          #genderInput="ngModel"
+          ngModel
+          name="gender">
+            <option value="Male" selected>Male</option>
+            <option value="Female">Female</option>
+          </select>
+        </div>
+        <div class="alert alert-danger mt-2 mb-0" *ngIf="birthdayInput.invalid && birthdayInput.touched">
+          Birthday is required
+        </div>
+        <br>
+        <div class="form-group">
+          <label for="weight">Weight</label>
+          <input
+            required
+            type="number"
+            class="form-control"
+            #weightInput="ngModel"
+            ngModel
+            name="weight"
+            id="weight"
+            placeholder="Enter your weight"
+          />
+        </div>
+        <div class="alert alert-danger mt-2 mb-0" *ngIf="weightInput.invalid && weightInput.touched">
+          Weight is required
+        </div>
+        <br />
       </form>
 </mat-dialog-content>
 <mat-divider></mat-divider>
 <mat-dialog-actions align="end">
     
   <button mat-raised-button (click)="close()">Cancel</button>
-  <button [disabled]="formulaire.invalid" mat-raised-button (click)="save(formulaire)" cdkFocusInitial>Install</button>
+  <button [disabled]="formulaire.invalid" mat-raised-button (click)="save(formulaire)" cdkFocusInitial>Add</button>
 </mat-dialog-actions>

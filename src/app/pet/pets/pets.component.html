@@ -1,4 +1,4 @@
-<button mat-raised-button  class="mb-2" color="primary" >Add Pet</button>
+<button mat-raised-button  class="mb-2" color="primary" (click)="addPet()">Add Pet</button>
 
 <mat-divider></mat-divider>
 
@@ -6,18 +6,18 @@
     <div  *ngFor="let patient of patients" id="testimonials">
         <div class="bg-white testimonial p-3 d-flex justify-newer-between align-items-start alert alert-dismissible fade show rounded-0" role="alert">
             <div class=" d-flex flex-column justify-newer-center align-newer-around">
-              <img src="{{ patient.pet.image }}" alt="">
+              <img src="{{ patient.image }}" alt="">
               <div>
-                <button mat-raised-button  class="mr-2 mt-2" color="primary" >Consult</button>
+                <button mat-raised-button [routerLink]="[patient._id + '/pet']"  class="mr-2 mt-2" color="primary" >Consult</button>
                 <button mat-raised-button class="mt-2" color="warn">Delete</button>
               </div>
               
             </div>
             <div class="mx-3" >
-              <strong class="name">{{ patient.pet.name }}</strong>
-              <p class="text-p mt-3 m-0 p-0" *ngIf="patient.rapport"><small style="color: gray;">Gender: </small> {{ patient.rapport }}</p>
-              <p class="text-p m-0 p-0" *ngIf="patient.rapport"><small style="color: gray;">Birthday: </small> {{ patient.rapport }}</p>
-              <p class="text-p m-0 p-0" *ngIf="patient.rapport"><small style="color: gray;">Type: </small> {{ patient.rapport }}</p>
+              <strong class="name">{{ patient.name }}</strong>
+              <p class="text-p mt-3 m-0 p-0" *ngIf="patient.sex"><small style="color: gray;">Gender: </small> {{ patient.sex }}</p>
+              <p class="text-p m-0 p-0" *ngIf="patient.birthday"><small style="color: gray;">Birthday: </small> {{ patient.birthday }}</p>
+              <p class="text-p m-0 p-0" *ngIf="patient.type"><small style="color: gray;">Type: </small> {{ patient.type }}</p>
             </div>
         </div>
     </div>
