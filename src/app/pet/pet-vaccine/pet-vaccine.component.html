@@ -1,0 +1,129 @@
+<mat-card>
+  <mat-card-title>Add vaccine</mat-card-title>
+  <mat-divider></mat-divider>
+  <mat-card-content>
+    <form #formulaire="ngForm">
+      <br />
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input
+          required
+          type="text"
+          #nameInput="ngModel"
+          class="form-control"
+          ngModel
+          name="name"
+          id="name"
+          placeholder="Enter name"
+        />
+      </div>
+      <div class="alert alert-danger mt-2 mb-0" *ngIf="nameInput.invalid && nameInput.touched">
+          Name is required
+      </div>
+      <br />
+      <div class="form-group">
+        <label for="veterinary">Veterinary</label>
+        <input
+          required
+          type="text"
+          class="form-control"
+          ngModel
+          #vetInput="ngModel"
+          name="vet"
+          id="veterinary"
+          placeholder="Enter your veterinary"
+        />
+      </div>
+      <div class="alert alert-danger mt-2 mb-0" *ngIf="vetInput.invalid && vetInput.touched">
+        Veterinary is required
+      </div>
+      <br />
+      <div class="form-group">
+        <label for="date">Date</label>
+        <input
+          required
+          type="date"
+          ngModel
+          #dateInput="ngModel"
+          name="date"
+          class="form-control"
+          id="date"
+        />
+      </div>
+      <div class="alert alert-danger mt-2 mb-0" *ngIf="dateInput.invalid && dateInput.touched">
+        Date is required
+    </div>
+      <br />
+      <div class="form-group">
+        <label for="desc">Description</label>
+        <textarea
+          rows="3"
+          class="form-control"
+          ngModel
+          name="description"
+          id="desc"
+          placeholder="Enter description"
+        ></textarea>
+      </div>
+    </form>
+  </mat-card-content>
+  <mat-divider></mat-divider>
+  <mat-card-actions align="end">
+    <button [disabled]="formulaire.invalid" mat-raised-button (click)="addVaccine(formulaire)" color="primary">
+      Add
+    </button>
+  </mat-card-actions>
+
+  
+</mat-card>
+
+    <div class="mt-2 mat-elevation-z8">
+      <table class="w-100" mat-table [dataSource]="dataSource">
+        <!-- Position Column -->
+        <ng-container matColumnDef="Name">
+          <th mat-header-cell *matHeaderCellDef> Name </th>
+          <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+        </ng-container>
+    
+        <!-- Name Column -->
+        <ng-container matColumnDef="Veterinary">
+          <th mat-header-cell *matHeaderCellDef> Veterinary </th>
+          <td mat-cell *matCellDef="let element"> {{element.vet.firstName + " " +  element.vet.lastName}} </td>
+        </ng-container>
+    
+        <!-- Weight Column -->
+        <ng-container matColumnDef="Date">
+          <th mat-header-cell *matHeaderCellDef> Date </th>
+          <td mat-cell *matCellDef="let element"> {{element.date}} </td>
+        </ng-container>
+    
+        <!-- Symbol Column -->
+        <ng-container matColumnDef="Description">
+          <th mat-header-cell *matHeaderCellDef> Description </th>
+          <td mat-cell *matCellDef="let element"> {{element.description}} </td>
+        </ng-container>
+  
+        <!-- Done Column -->
+        <ng-container matColumnDef="Done">
+          <th mat-header-cell *matHeaderCellDef> Done </th>
+          <td mat-cell *matCellDef="let element"> 
+            <button mat-raised-button *ngIf="element.done" (click)="updateDone(element._id,!element.done)"  color="primary" >Done</button>
+            <button mat-raised-button *ngIf="!element.done" (click)="updateDone(element._id,!element.done)" color="warn">Not Done</button>
+             </td>
+        </ng-container>
+
+        <!-- Actions Column -->
+        <ng-container matColumnDef="Actions">
+          <th mat-header-cell *matHeaderCellDef> Actions </th>
+          <td mat-cell *matCellDef="let element"> 
+            <button mat-raised-button (click)="updateVaccine(element)" class="mr-2" color="primary" >Edit</button>
+            <button mat-raised-button (click)="deleteVaccine(element._id)" color="warn">Delete</button>
+             </td>
+        </ng-container>
+    
+        <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+    </div>
+
+
