@@ -11,7 +11,7 @@
               <img src="{{ patient.image }}" alt="">
               <div>
                 <button mat-raised-button [routerLink]="[patient._id + '/pet']"  class="mr-2 mt-2" color="primary" >Consult</button>
-                <button mat-raised-button class="mt-2" color="warn">Delete</button>
+                <button mat-raised-button class="mt-2" color="warn" (click)="deletePet(patient._id)">Delete</button>
               </div>
               
             </div>

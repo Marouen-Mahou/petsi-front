@@ -24,6 +24,10 @@ export class PetsService {
   getPet(id: string): Observable<any[]> {
     return this.http.get<any[]>(this.link + '/' + id);
   }
+
+  deletePet(id: string): Observable<any> {
+    return this.http.delete(this.link + '/' + id)
+  }
 }
 
 

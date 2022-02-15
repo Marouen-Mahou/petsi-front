@@ -53,4 +53,18 @@ export class PetsComponent implements OnInit {
     })
   }
 
+  deletePet(id: string) {
+    this.petsService.deletePet(id).subscribe(
+      (response) => {
+        this.patients = this.patients.filter( el => el._id != id )
+        this.snackbar.open('Pet deleted', 'Close', {
+          duration: 3000
+        });
+      },
+      (error) => {
+        console.log(error)
+      }
+    )
+  }
+
 }
