@@ -32,7 +32,6 @@ export class RegisterComponent implements OnInit {
   }
 
   register(model:any){
-    console.log("model:",model)
     let data = new FormData();
     data.append("avatar", this.selectedFile);
     data.append("firstName",model.firstName);
@@ -46,8 +45,7 @@ export class RegisterComponent implements OnInit {
     data.append("phone",model.phone);
     this.authService.register(data).subscribe(
       (rep) => {
-        const link = ["success"];
-        this.router.navigate([link,{message:"You registered successfully!\nOne step left: a verification link was sent to your email",next:"Go to login page", link:"/login"}]);
+        this.router.navigate(["success",{message:"You registered successfully!\nOne step left: a verification link was sent to your email",next:"Go to login page", link:"/login"}]);
       },
       (err)=>{
         console.log("error:",err);

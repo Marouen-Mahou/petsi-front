@@ -35,11 +35,6 @@ export class AppSideNavComponent implements OnInit {
           title: 'Market',
           icon: 'storefront',
           link: '/user/store'
-        },
-        {
-          title: 'Logout',
-          icon: 'logout',
-          link: '/logout'
         }
       ]
     }else{
@@ -53,7 +48,7 @@ export class AppSideNavComponent implements OnInit {
         {
           title: 'Patients',
           icon: 'pets',
-          link: '/vet/pet'
+          link: '/vet/patients'
         },
         {
           title: 'Requests',

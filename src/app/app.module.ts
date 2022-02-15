@@ -37,6 +37,9 @@ import { SuccessComponent } from './success/success.component';
 import { AboutComponent } from './about/about.component';
 import { PetModule } from './pet/pet.module';
 import { PatientsModule } from './patients/patients.module';
+import { ProfileComponent } from './profile/profile.component';
+import { EditComponent } from './profile/edit/edit.component';
+import { MatDialogModule } from '@angular/material/dialog';
 
 
 @NgModule({
@@ -47,8 +50,11 @@ import { PatientsModule } from './patients/patients.module';
     NotFoundComponent,
     SuccessComponent,
     AboutComponent,
+    ProfileComponent,
+    EditComponent,
   ],
   imports: [
+    MatDialogModule,
     FontAwesomeModule,
     MatToolbarModule,
     MatInputModule,

@@ -1,0 +1,36 @@
+<div class="px-4 py-3" id="body">
+  <h5 id="about" class="mb-0">About</h5>
+  <div id="container" class="p-4 rounded shadow-sm bg-light font-italic">
+    <table>
+      <tr>
+        <th>First Name:</th>
+        <td>{{userDetails.firstName}}</td>
+      </tr>
+      <tr>
+        <th>Last Name:</th>
+        <td>{{userDetails.lastName}}</td>
+      </tr>
+      <tr>
+        <th>Email:</th>
+        <td>{{userDetails.email}}</td>
+      </tr>
+      <tr>
+        <th>Gender:</th>
+        <td>{{userDetails.gender}}</td>
+      </tr>
+      <tr>
+        <th>Birthdate:</th>
+        <td>{{userDetails.birthdate | date:'longDate'}}</td>
+      </tr>
+      <tr>
+        <th>Phone:</th>
+        <td>{{userDetails.phone}}</td>
+      </tr>
+      <tr>
+        <th>Address:</th>
+        <td>{{userDetails.adress}}</td>
+      </tr>
+    </table>
+  </div>
+  <a class="btn btn-primary pull-right" (click)="edit()">Edit</a>
+</div>
