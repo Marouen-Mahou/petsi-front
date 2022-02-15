@@ -35,6 +35,9 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { PetAppointmentComponent } from './pet-appointment/pet-appointment.component';
 import { PetsComponent } from './pets/pets.component';
 import { PetsDialogComponent } from './pets/pets-dialog/pets-dialog.component';
+import { AppointmentDialogComponent } from './pet-appointment/appointment-dialog/appointment-dialog.component';
+import { FoodDialogComponent } from './pet-food/food-dialog/food-dialog.component';
+import { BathDialogComponent } from './pet-bath/bath-dialog/bath-dialog.component';
 
 
 @NgModule({
@@ -51,6 +54,9 @@ import { PetsDialogComponent } from './pets/pets-dialog/pets-dialog.component';
     PetAppointmentComponent,
     PetsComponent,
     PetsDialogComponent,
+    AppointmentDialogComponent,
+    FoodDialogComponent,
+    BathDialogComponent,
 
   ],
   imports: [

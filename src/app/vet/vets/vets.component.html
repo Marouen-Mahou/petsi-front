@@ -1,0 +1,23 @@
+
+<div class="newer px-3">
+    <div class="container">
+        <input class="form-control" id="myInput" type="text" placeholder="Search..">
+    </div>
+    <div  *ngFor="let vet of vets" id="testimonials">
+        <div class="bg-white testimonial p-3 d-flex justify-newer-between align-items-start alert alert-dismissible fade show rounded-0" role="alert">
+            <div class=" d-flex flex-column justify-newer-center align-newer-around">
+              <img src="{{  vet.avatar }}" alt="">
+              <div>
+                <button mat-raised-button [routerLink]="[vet._id ]"  class="mr-2 mt-2" color="primary" >Consult</button>
+              </div>
+              
+            </div>
+            <div class="mx-3" >
+              <strong class="name">{{ vet.firstName + ' ' + vet.lastName }}</strong>
+              <p class="text-p mt-3 m-0 p-0" *ngIf="vet.gender"><small style="color: gray;">Gender: </small> {{ vet.gender }}</p>
+              <p class="text-p m-0 p-0" *ngIf="vet.adress"><small style="color: gray;">Type: </small> {{ vet.adress }}</p>
+              <p class="text-p m-0 p-0" *ngIf="vet.email"><small style="color: gray;">Type: </small> {{ vet.email }}</p>
+            </div>
+        </div>
+    </div>
+  </div>

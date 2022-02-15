@@ -23,16 +23,20 @@
         <br />
         <div class="form-group">
           <label for="veterinary">Veterinary</label>
-          <input
+          <select
             required
             type="text"
             class="form-control"
             #vetInput="ngModel"
             name="vet"
-            [(ngModel)]="data.vet.firstName"
+            [(ngModel)]="data.vet._id"
             id="veterinary"
             placeholder="Enter your veterinary"
-          />
+          >
+          <option *ngFor="let vet of vets" [ngValue]="vet._id">
+            {{vet.firstName + ' ' + vet.lastName}}
+          </option>
+        </select>
         </div>
         <div class="alert alert-danger mt-2 mb-0" *ngIf="vetInput.invalid && vetInput.touched">
           Veterinary is required
@@ -71,5 +75,5 @@
 <mat-dialog-actions align="end">
     
   <button mat-raised-button (click)="close()">Cancel</button>
-  <button [disabled]="formulaire.invalid" mat-raised-button (click)="save(formulaire)" cdkFocusInitial>Install</button>
+  <button [disabled]="formulaire.invalid" mat-raised-button (click)="save(formulaire)" color="primary" cdkFocusInitial>Update</button>
 </mat-dialog-actions>

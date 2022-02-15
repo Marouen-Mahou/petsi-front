@@ -5,6 +5,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { AuthService } from '../../services/auth.service';
 import { UserModel } from '../../models/user.model';
+import * as moment from 'moment'
 
 @Component({
   selector: 'app-pets',
@@ -12,6 +13,7 @@ import { UserModel } from '../../models/user.model';
   styleUrls: ['./pets.component.scss']
 })
 export class PetsComponent implements OnInit {
+  moment = moment //Moment.js
 
   patients: any[] = [];
   user = this.authService.decodeToken() as UserModel;
@@ -49,6 +51,20 @@ export class PetsComponent implements OnInit {
         }
       )
     })
+  }
+
+  deletePet(id: string) {
+    this.petsService.deletePet(id).subscribe(
+      (response) => {
+        this.patients = this.patients.filter( el => el._id != id )
+        this.snackbar.open('Pet deleted', 'Close', {
+          duration: 3000
+        });
+      },
+      (error) => {
+        console.log(error)
+      }
+    )
   }
 
 }

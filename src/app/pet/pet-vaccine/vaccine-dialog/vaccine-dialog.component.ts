@@ -1,5 +1,6 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
+import { VaccineService } from '../vaccine.service';
 import { NgForm } from '@angular/forms';
 
 @Component({
@@ -8,10 +9,12 @@ import { NgForm } from '@angular/forms';
   styleUrls: ['./vaccine-dialog.component.scss']
 })
 export class VaccineDialogComponent implements OnInit {
+  vets: Vet[] = []
 
-  constructor(private dialogRef: MatDialogRef<VaccineDialogComponent>, @Inject(MAT_DIALOG_DATA) public data: Vaccine) { }
+  constructor(private dialogRef: MatDialogRef<VaccineDialogComponent>, @Inject(MAT_DIALOG_DATA) public data: Vaccine, private vaccineService: VaccineService) { }
 
   ngOnInit(): void {
+    this.getVets()
   }
 
   save(form: NgForm) {
@@ -23,6 +26,17 @@ export class VaccineDialogComponent implements OnInit {
   close() {
       this.dialogRef.close();
   }
+
+  getVets() {
+    this.vaccineService.getAllVets().subscribe(
+      (response) => {
+        this.vets = response
+      },
+      (error) => {
+        console.log(error)
+      }
+    )
+  }
 }
 
 export interface Vaccine {
@@ -33,4 +47,10 @@ export interface Vaccine {
   date: string;
   description: string;
   done: boolean;
+}
+
+export interface Vet {
+  _id: string,
+  firstName: string,
+  lastName: string
 }
