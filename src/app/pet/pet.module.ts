@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { PetListComponent } from './pets-list/pet-list.component';
 
 import { PetRoutingModule } from './pet-routing.module';
 import { PetBathComponent } from './pet-bath/pet-bath.component';
@@ -38,7 +39,8 @@ import { PetsDialogComponent } from './pets/pets-dialog/pets-dialog.component';
 
 
 @NgModule({
-  declarations: [
+  declarations: [    
+    PetListComponent,
     PetProfileComponent,
     PetProfileVaccineComponent,
     PetProfileFoodComponent,
