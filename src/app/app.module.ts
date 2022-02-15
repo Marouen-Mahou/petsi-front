@@ -47,6 +47,7 @@ import { SuccessComponent } from './success/success.component';
 import { VaccineDialogComponent } from './pet/pet-vaccine/vaccine-dialog/vaccine-dialog.component';
 import { AboutComponent } from './about/about.component';
 import { PetModule } from './pet/pet.module';
+import { VetModule } from './vet/vet.module';
 import { PatientsModule } from './patients/patients.module';
 
 @NgModule({
@@ -93,6 +94,7 @@ import { PatientsModule } from './patients/patients.module';
     AuthModule,
     PatientsModule,
     PetModule,
+    VetModule,
     AppRoutingModule, // this must be the last
     NgbModule,
   ],

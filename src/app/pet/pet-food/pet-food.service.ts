@@ -13,12 +13,12 @@ export class FoodService {
     return this.http.get<any[]>(this.link + 'foods/pet/' + id);
   }
 
-  addFoods(vaccine: Food): Observable<any> {
-    return this.http.post(this.link + 'foods', vaccine);
+  addFoods(food: Food): Observable<any> {
+    return this.http.post(this.link + 'foods', food);
   }
 
-  updateFood(id: string, vaccine: Partial<Food>): Observable<any> {
-    return this.http.put(this.link + 'foods/' + id, vaccine)
+  updateFood(id: string, food: Partial<Food>): Observable<any> {
+    return this.http.put(this.link + 'foods/' + id, food)
   }
 
   deleteFood(id: string): Observable<any> {
@@ -34,7 +34,6 @@ interface Food {
   name:string,
   quantity:string,
   date: string,
-  vet: any,
   pet: string,
   done: string
 }

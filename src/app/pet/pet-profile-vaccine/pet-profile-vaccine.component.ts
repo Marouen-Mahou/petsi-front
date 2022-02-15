@@ -1,4 +1,11 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
+import { MatDialog } from '@angular/material/dialog';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { elementAt } from 'rxjs';
+import { VaccineService } from '../pet-vaccine/vaccine.service';
+import { Router, ActivatedRoute, ParamMap } from '@angular/router';
+import * as moment from "moment";
 
 @Component({
   selector: 'app-pet-profile-vaccine',
@@ -7,25 +14,40 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PetProfileVaccineComponent implements OnInit {
   displayedColumns = ['Name', 'Veterinary', 'Date', 'Description', 'Done'];
-  dataSource = ELEMENT_DATA;
+  dataSource:Vaccine[] = [];
+  petId:any = '';
 
-  constructor() { }
+  constructor(private vaccineService: VaccineService,
+      private route: ActivatedRoute
+      ) { }
 
   ngOnInit(): void {
+    this.route.paramMap.subscribe(params => {
+      this.petId = params.get('id');
+    })
+    this.getVaccines()
+  }
+
+  
+  getVaccines( ){
+    this.vaccineService.getVaccines(this.petId).subscribe(
+      (vaccines) => {
+        this.dataSource = vaccines.filter(el => !el.deleted )
+        this.dataSource = this.dataSource.map(el => ({...el, date: moment(el.date).format("DD/MM/YYYY")}))
+      },
+      (error) => {
+        console.log(error)
+      }
+    )
   }
 
 }
 
-export interface PeriodicElement {
+export interface Vaccine {
+  _id: string,
   name: string;
-  veterinary: string;
+  vet: string;
   date: string;
-  desc: string;
+  description: string;
   done: boolean;
 }
-
-
-const ELEMENT_DATA: PeriodicElement[] = [
-  {name: 'Vaccine 1', veterinary: 'Mouard', date: "25 juin 2021", desc: 'vaccine 1 desc', done: true},
-  {name: 'Vaccine 2', veterinary: 'Mouard', date: "25 juin 2021", desc: 'vaccine 2 desc', done: false},
-];
