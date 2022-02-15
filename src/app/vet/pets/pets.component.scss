@@ -1,0 +1,107 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif
+  }
+  
+  body {
+    background-color: #eee
+  }
+  
+  .wrapper {
+    padding: 0;
+    max-width: 400px;
+    margin: 20px auto;
+    border: 1px solid #ddd;
+    border-radius: 15px
+  }
+  
+  .rounded-t {
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px
+  }
+  
+  .alert-dismissible {
+    border-radius: 15px
+  }
+  
+  img {
+    object-fit: cover;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%
+  }
+  
+  .alert-dismissible .close {
+    padding: 0;
+    margin: 0.4rem 0.5rem;
+    padding: 0.1rem 0.3rem;
+    color: #fff;
+    font-weight: bolder;
+    text-shadow: none;
+    opacity: 1;
+    font-size: 0.9rem;
+    outline: none;
+    border: 2px solid #fff;
+    border-radius: 4px
+  }
+  
+  
+  .testimonial {
+    border: 1px solid #ddd;
+    margin: 10px 0px;
+    cursor: pointer
+  }
+  
+  #testimonials .testimonial.alert-dismissible .close {
+    text-shadow: none;
+    color: rgb(204, 0, 0);
+    opacity: 0;
+    outline: none
+  }
+  
+  #testimonials .testimonial:hover.alert-dismissible .close {
+    opacity: 1
+  }
+  
+  .btn.btn-primary {
+    border-radius: 25px;
+    font-size: 0.85rem;
+    padding: 0.3rem 0.8rem
+  }
+  
+  .testimonial .btn {
+    color: #167cdb;
+    border: 1px solid #167cdb;
+    font-size: 0.9rem;
+    padding: 0.2rem 0.8rem
+  }
+  
+  .testimonial .btn:hover {
+    color: #fff;
+    background-color: #167cdb
+  }
+  
+  .text-p {
+    font-size: 0.9rem;
+    padding-top: 4px
+  }
+  
+  ::-webkit-scrollbar {
+    width: 8px
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background-color: #167cdb;
+    border-radius: 4px
+  }
+  
+  div>strong, div>p{
+  color: black;
+  }
+  
+  div>p{
+  padding: 20px;
+  }
+  

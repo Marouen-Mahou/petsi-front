@@ -1,13 +1,14 @@
 <mat-card class="pet-card">
-    <mat-card-title class="pet-card-title">Shiba</mat-card-title>
+    <mat-card-title class="pet-card-title">{{ pet.name}}</mat-card-title>
     <mat-divider></mat-divider>
     <mat-card-title-group>
-      <img mat-card-lg-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" >
+      <img mat-card-lg-image src="{{ pet.image }}" >
       <mat-card-subtitle>
         <mat-list role="list">
-            <mat-list-item role="listitem">Gender : Male</mat-list-item>
-            <mat-list-item role="listitem">Birthday : 16 Juin 2021</mat-list-item>
-            <mat-list-item role="listitem">Type : Dog</mat-list-item>
+            <mat-list-item role="listitem">Gender : {{ pet.sex}}</mat-list-item>
+            <mat-list-item role="listitem">Birthday :  {{ pet.birthday}}</mat-list-item>
+            <mat-list-item role="listitem">Type : {{ pet.type}}</mat-list-item>
+            <mat-list-item role="listitem">Breed : {{ pet.breed}}</mat-list-item>
         </mat-list>
       </mat-card-subtitle>
     </mat-card-title-group>
@@ -42,6 +43,7 @@
             Bath
           </mat-panel-title>
         </mat-expansion-panel-header>
+        <button  class="consult-button" [routerLink]="['baths']" mat-raised-button color="primary">Consult</button>
         <app-pet-profile-bath></app-pet-profile-bath>
     </mat-expansion-panel>
     <mat-expansion-panel class="pet-accordion">
@@ -51,7 +53,7 @@
           Weight
         </mat-panel-title>
       </mat-expansion-panel-header>
-      <app-pet-profile-bath></app-pet-profile-bath>
+      <app-pet-profile-weight [weight]="pet.weight"></app-pet-profile-weight>
   </mat-expansion-panel>
     <mat-expansion-panel class="pet-accordion">
         <mat-expansion-panel-header>

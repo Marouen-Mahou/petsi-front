@@ -1,4 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, NgModule, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
+import { MatDialog } from '@angular/material/dialog';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { elementAt } from 'rxjs';
+import { FoodService } from '../pet-food/pet-food.service';
+import { Router, ActivatedRoute, ParamMap } from '@angular/router';
+import * as moment from "moment";
+
 
 @Component({
   selector: 'app-pet-profile-food',
@@ -6,26 +14,41 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./pet-profile-food.component.sass']
 })
 export class PetProfileFoodComponent implements OnInit {
-  displayedColumns = ['Name', 'Quantity', 'Date', 'Done'];
-  dataSource = ELEMENT_DATA;
+  displayedColumns = ['Name', 'Quantity','Date', 'Done'];
+  dataSource:Food[] = [];
+  petId:any = '';
 
-  constructor() { }
+  constructor(private foodService: FoodService,
+      private route: ActivatedRoute
+      ) { }
 
   ngOnInit(): void {
+    this.route.paramMap.subscribe(params => {
+      this.petId = params.get('id');
+    })
+    this.getFoods()
+  }
+
+  getFoods( ){
+    this.foodService.getFoods(this.petId).subscribe(
+      (foods) => {
+        this.dataSource = foods.filter(el => !el.deleted )
+        this.dataSource = this.dataSource.map(el => ({...el, date: moment(el.date).format("DD/MM/YYYY")}))
+      },
+      (error) => {
+        console.log(error)
+      }
+    )
   }
 
 }
 
 
-export interface PeriodicElement {
-  name: string;
-  quantity: number;
+
+export interface Food {
+  _id: string;
   date: string;
+  quantity: string;
+  name: string;
   done: boolean;
 }
-
-
-const ELEMENT_DATA: PeriodicElement[] = [
-  {name: 'Food 1', quantity: 25, date: "25 juin 2021", done: true},
-  {name: 'Food 2', quantity: 25, date: "25 juin 2021", done: false},
-];

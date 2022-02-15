@@ -8,14 +8,18 @@ import { PetAppointmentComponent } from './pet-appointment/pet-appointment.compo
 import { PetFoodComponent } from './pet-food/pet-food.component';
 import { PetProfileComponent } from './pet-profile/pet-profile.component';
 import { PetVaccineComponent } from './pet-vaccine/pet-vaccine.component';
+import { PetBathComponent } from './pet-bath/pet-bath.component';
+import { PetsComponent } from './pets/pets.component';
 
 const routes: Routes = [
-  { path: 'user', component: AppUserLayoutComponent,canActivate:[AuthGuard, UserGuard], children: [
-    { path: 'pet', component: PetProfileComponent},
-    { path: 'pet/vaccines', component: PetVaccineComponent},
-    { path: 'pet/foods', component: PetFoodComponent},
-    { path: 'pet/appointments', component: PetAppointmentComponent},
+  { path: 'user', component: AppUserLayoutComponent,canActivate:[AuthGuard,UserGuard], children: [
     { path: 'profile', component: ProfileComponent},
+    { path: 'pets', component: PetsComponent},
+    { path: 'pets/:id/pet', component: PetProfileComponent},
+    { path: 'pets/:id/pet/vaccines', component: PetVaccineComponent},
+    { path: 'pets/:id/pet/foods', component: PetFoodComponent},
+    { path: 'pets/:id/pet/baths', component: PetBathComponent},
+    { path: 'pets/:id/pet/appointments', component: PetAppointmentComponent},
   ]},
 ];
 

@@ -6,24 +6,24 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { FlexLayoutModule } from '@angular/flex-layout';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome'
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 // Angular Materials
-import {MatInputModule} from '@angular/material/input';
+import { MatInputModule } from '@angular/material/input';
 import { MatCardModule } from '@angular/material/card';
 import { MatListModule } from '@angular/material/list';
 import { MatExpansionModule } from '@angular/material/expansion';
-import { MatTableModule } from '@angular/material/table'
-import { MatSidenavModule } from '@angular/material/sidenav'
+import { MatTableModule } from '@angular/material/table';
+import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
-import { FormsModule }   from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 import { MatIconModule } from '@angular/material/icon';
-import {MatButtonModule} from '@angular/material/button';
-import {MatToolbarModule} from '@angular/material/toolbar';
-
+import { MatButtonModule } from '@angular/material/button';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatDialogModule } from '@angular/material/dialog';
 
 import { AppSideNavComponent } from './app-side-nav/app-side-nav.component';
 import { AppUserLayoutComponent } from './app-user-layout/app-user-layout.component';
@@ -34,13 +34,13 @@ import { AuthInterceptorProvider } from './interceptors/jwt.interceptor';
 import { AuthGuard } from './guards/auth.guard';
 import { NotAuthGuard } from './guards/notAuth.guard';
 import { SuccessComponent } from './success/success.component';
+import { VaccineDialogComponent } from './pet/pet-vaccine/vaccine-dialog/vaccine-dialog.component';
 import { AboutComponent } from './about/about.component';
 import { PetModule } from './pet/pet.module';
+import { VetModule } from './vet/vet.module';
 import { PatientsModule } from './patients/patients.module';
 import { ProfileComponent } from './profile/profile.component';
 import { EditComponent } from './profile/edit/edit.component';
-import { MatDialogModule } from '@angular/material/dialog';
-
 
 @NgModule({
   declarations: [
@@ -49,6 +49,7 @@ import { MatDialogModule } from '@angular/material/dialog';
     AppUserLayoutComponent,
     NotFoundComponent,
     SuccessComponent,
+    VaccineDialogComponent,
     AboutComponent,
     ProfileComponent,
     EditComponent,
@@ -72,19 +73,17 @@ import { MatDialogModule } from '@angular/material/dialog';
     MatDividerModule,
     MatGridListModule,
     MatSnackBarModule,
+    MatDialogModule,
     FormsModule,
     HttpClientModule,
     AuthModule,
     PatientsModule,
     PetModule,
+    VetModule,
     AppRoutingModule, // this must be the last
     NgbModule,
   ],
-  providers: [
-    AuthInterceptorProvider,
-    AuthGuard,
-    NotAuthGuard
-  ],
-  bootstrap: [AppComponent]
+  providers: [AuthInterceptorProvider, AuthGuard, NotAuthGuard],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

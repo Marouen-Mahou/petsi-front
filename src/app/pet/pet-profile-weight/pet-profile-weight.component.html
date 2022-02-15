@@ -1,1 +1,35 @@
-<p>pet-profile-weight works!</p>
+<mat-card class="weight-card">
+  <mat-card-title>Current Weight</mat-card-title>
+  <mat-divider inset></mat-divider>
+  <mat-card-content>
+    <div class="row">
+      <div class="col">
+        <mat-icon class="icon-display">scale</mat-icon>
+      </div>
+
+      <div class="col text-display">{{ weight }} Kg</div>
+    </div>
+  </mat-card-content>
+  <mat-divider inset></mat-divider>
+  <mat-card-actions>
+    <form #formulaire="ngForm">
+      <div class="row">
+        <div class="col">
+          <input
+            required
+            type="number"
+            #weightInput="ngModel"
+            ngModel
+            class="form-control"
+            name="weight"
+            id="weight"
+            placeholder="Enter new weight"
+          />
+        </div>
+        <div class="col">
+          <button [disabled]="formulaire.invalid" mat-raised-button color="accent" (click)="updateWeight(formulaire)">Update</button>
+        </div>
+      </div>
+    </form>
+  </mat-card-actions>
+</mat-card>

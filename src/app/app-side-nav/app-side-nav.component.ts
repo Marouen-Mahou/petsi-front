@@ -24,7 +24,7 @@ export class AppSideNavComponent implements OnInit {
         {
           title: 'My pets',
           icon: 'pets',
-          link: '/user/pet'
+          link: '/user/pets'
         },
         {
           title: 'Veterinary',

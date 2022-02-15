@@ -1,0 +1,112 @@
+<h2 mat-dialog-title>Add pet</h2>
+<mat-divider></mat-divider>
+<mat-dialog-content class="mat-typography">
+    
+      <form #formulaire="ngForm">
+        <br />
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input
+            required
+            type="text"
+            #nameInput="ngModel"
+            ngModel
+            class="form-control"
+            name="name"
+            id="name"
+            placeholder="Enter name"
+          />
+        </div>
+        <div class="alert alert-danger mt-2 mb-0" *ngIf="nameInput.invalid && nameInput.touched">
+            Name is required
+        </div>
+        <br />
+        <div class="form-group">
+          <label for="type">Type</label>
+          <input
+            required
+            type="text"
+            class="form-control"
+            #typeInput="ngModel"
+            ngModel
+            name="type"
+            id="type"
+            placeholder="Enter your type"
+          />
+        </div>
+        <div class="alert alert-danger mt-2 mb-0" *ngIf="typeInput.invalid && typeInput.touched">
+          Type is required
+        </div>
+        <br />
+        <div class="form-group">
+          <label for="breed">Breed</label>
+          <input
+            required
+            type="text"
+            class="form-control"
+            #breedInput="ngModel"
+            ngModel
+            name="breed"
+            id="breed"
+            placeholder="Enter your breed"
+          />
+        </div>
+        <div class="alert alert-danger mt-2 mb-0" *ngIf="breedInput.invalid && breedInput.touched">
+          Breed is required
+        </div>
+        <br />
+        <div class="form-group">
+          <label for="birthday">Birthday</label>
+          <input
+            required
+            type="date"
+            #birthdayInput="ngModel"
+            ngModel
+            name="birthday"
+            class="form-control"
+            id="birthday"
+          />
+        </div>
+        <div class="alert alert-danger mt-2 mb-0" *ngIf="birthdayInput.invalid && birthdayInput.touched">
+          Birthday is required
+        </div>
+        <br />
+        <div class="form-group" >
+          <label for="gender">Gender</label>
+          <select class="form-control"
+          #genderInput="ngModel"
+          ngModel
+          name="sex">
+            <option value="Male" selected>Male</option>
+            <option value="Female">Female</option>
+          </select>
+        </div>
+        <div class="alert alert-danger mt-2 mb-0" *ngIf="birthdayInput.invalid && birthdayInput.touched">
+          Birthday is required
+        </div>
+        <br>
+        <div class="form-group">
+          <label for="weight">Weight</label>
+          <input
+            required
+            type="number"
+            class="form-control"
+            #weightInput="ngModel"
+            ngModel
+            name="weight"
+            id="weight"
+            placeholder="Enter your weight"
+          />
+        </div>
+        <div class="alert alert-danger mt-2 mb-0" *ngIf="weightInput.invalid && weightInput.touched">
+          Weight is required
+        </div>
+        <br />
+      </form>
+</mat-dialog-content>
+<mat-divider></mat-divider>
+<mat-dialog-actions align="end">
+    
+  <button mat-raised-button (click)="close()">Cancel</button>
+  <button [disabled]="formulaire.invalid" mat-raised-button (click)="save(formulaire)" cdkFocusInitial>Add</button>
+</mat-dialog-actions>
