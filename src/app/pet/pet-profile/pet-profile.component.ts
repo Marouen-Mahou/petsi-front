@@ -20,6 +20,8 @@ export class PetProfileComponent implements OnInit {
         (rep) => {
           this.pet = rep[0]
           this.pet.birthday = moment(this.pet.birthday).format("DD/MM/YYYY")
+
+
         },
         (err) => {
           console.log(err);

@@ -85,7 +85,20 @@ import { BathDialogComponent } from './pet-bath/bath-dialog/bath-dialog.componen
   ],
   exports:[
     PetProfileComponent,
-    PetProfileBathComponent
+    PetProfileVaccineComponent,
+    PetProfileFoodComponent,
+    PetProfileBathComponent,
+    PetProfileAppointmentComponent,
+    PetProfileWeightComponent,
+    PetVaccineComponent,
+    PetBathComponent,
+    PetFoodComponent,
+    PetAppointmentComponent,
+    PetsComponent,
+    PetsDialogComponent,
+    AppointmentDialogComponent,
+    FoodDialogComponent,
+    BathDialogComponent,
   ]
 })
 export class PetModule { }

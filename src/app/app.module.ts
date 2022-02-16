@@ -25,6 +25,12 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatDialogModule } from '@angular/material/dialog';
 
+// import { PetProfileVaccineComponent } from './pet-profile-vaccine/pet-profile-vaccine.component'
+// import { PetProfileComponent } from './pet-profile/pet-profile.component';
+// import { PetProfileFoodComponent } from './pet-profile-food/pet-profile-food.component';
+// import { PetProfileBathComponent } from './pet-profile-bath/pet-profile-bath.component';
+// import { PetProfileAppointmentComponent } from './pet-profile-appointment/pet-profile-appointment.component';
+// import { PetProfileWeightComponent } from './pet-profile-weight/pet-profile-weight.component';
 import { AppSideNavComponent } from './app-side-nav/app-side-nav.component';
 import { AppUserLayoutComponent } from './app-user-layout/app-user-layout.component';
 
